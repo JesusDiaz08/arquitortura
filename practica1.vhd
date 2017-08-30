@@ -45,29 +45,36 @@ begin
 		variable P : STD_LOGIC_VECTOR(3 DOWNTO 0);
 		variable EB : STD_LOGIC_VECTOR(3 DOWNTO 0);
 		variable C : STD_LOGIC_VECTOR(4 DOWNTO 0);
-		variable C0PI : STD_LOGIC;
+		variable PI : STD_LOGIC;
 		variable PK : STD_LOGIC;
 		variable GJ : STD_LOGIC;
+		variable Saux : STD_LOGIC_VECTOR (3 downto 0);
 	BEGIN
 	   C(0) := C0;
+		GJ :='0';
 		FOR i IN 0 TO 3 LOOP
 			G(i) := (A(i) AND B(i));
-			FOR i2 IN 0 TO i LOOP
-				C0PI := C0PI AND P(i);
+			P(i) := A(i) xor B(i); -- meter al for y 0 to i
+			PI := P(0);
+			
+			FOR i2 IN 1 TO i LOOP
+				PI := PI AND P(i2);
 			END LOOP;
+			
 			FOR j IN 0 TO i-1 LOOP
-				FOR k IN j+1 TO i LOOP
-					PK := PK AND (A(k) XOR B(k));
+				PK := P(j+1);
+				FOR k IN j+2 TO i LOOP
+					PK := PK AND P(k);
 				END LOOP;
-				GJ := G(j) and PK;
+				GJ := (G(j) and PK) or GJ;
 			END LOOP;
-			C(i+1) := G(i) or (C0 and C0PI); 
-		END LOOP;
-		FOR I IN 0 TO 3 LOOP
-			EB(I) := B(I) XOR BINVERT;
-			S(I) <= A(I) XOR EB(I) XOR C(I);
+			
+			C(i+1) := G(i) or (C0 and PI) or GJ; 
+			EB(i) := B(i) XOR BINVERT;
+			Saux(i) := A(i) XOR EB(i) XOR C(i);
 		END LOOP;
 		C4 <= C(4);
+		S <= Saux;
 	END PROCESS PALU;
 end Behavioral;
 
