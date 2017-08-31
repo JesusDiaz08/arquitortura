@@ -64,7 +64,7 @@ begin
 
 			FOR k IN 0 TO i-1 LOOP --3
 				P2:=or G(k);
-				FOR m IN 1+m TO i LOOP
+				FOR m IN 1+k TO i LOOP
 					P2:= P2 and P(m);
 				END LOOP;
 			END LOOP;--3
