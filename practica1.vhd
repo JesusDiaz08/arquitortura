@@ -52,27 +52,28 @@ begin
 	BEGIN
 	   C(0) := C0;
 		GJ :='0';
-		FOR i IN 0 TO 3 LOOP
+		FOR i IN 0 TO 3 LOOP --1
+		
 			G(i) := (A(i) AND B(i));
-			P(i) := A(i) xor B(i); -- meter al for y 0 to i
+			P(i) := (A(i) xor B(i)); -- meter al for y 0 to i
 			PI := P(0);
 			
-			FOR i2 IN 1 TO i LOOP
+			FOR i2 IN 1 TO i LOOP --2
 				PI := PI AND P(i2);
-			END LOOP;
+			END LOOP;--2
 			
-			FOR j IN 0 TO i-1 LOOP
+			FOR j IN 0 TO i-1 LOOP --3
 				PK := P(j+1);
-				FOR k IN j+2 TO i LOOP
+				FOR k IN j+2 TO i LOOP --4
 					PK := PK AND P(k);
-				END LOOP;
+				END LOOP;--4
 				GJ := (G(j) and PK) or GJ;
-			END LOOP;
+			END LOOP;--3
 			
 			C(i+1) := G(i) or (C0 and PI) or GJ; 
 			EB(i) := B(i) XOR BINVERT;
 			Saux(i) := A(i) XOR EB(i) XOR C(i);
-		END LOOP;
+		END LOOP;--1
 		C4 <= C(4);
 		S <= Saux;
 	END PROCESS PALU;
