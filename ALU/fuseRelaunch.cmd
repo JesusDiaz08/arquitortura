@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/TB_ALU2_isim_beh.exe" -prj "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/TB_ALU2_beh.prj" "work.TB_ALU2" 

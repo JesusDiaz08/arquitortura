@@ -53,7 +53,6 @@ begin
 		FOR i IN 0 TO N-1 LOOP
 			G(i) := (A(i) AND B(i)); 
 			P(i) := (A(i) xor B(i)); 
-			PI := P(0);
 		END LOOP;
 		
 		FOR i IN 0 TO N-1 LOOP --1
@@ -68,15 +67,15 @@ begin
 					P2:= P2 and P(m);
 				END LOOP;
 			END LOOP;--3
-			
+				EB(i) := B(i) XOR BINVERT;
+			S(i) <= A(i) XOR EB(i) XOR C(i);
+			IF i<='0' then		
+			C(i+1):=(G(i) or  C(0)) and P(0);
+			END IF;
+			C(i+1):=(G(i) or C(0)) and (P1 or P2);
+			CN <= C(N);
 		END LOOP;--1
-		EB(i) := B(i) XOR BINVERT;
-		S(i) := A(i) XOR EB(i) XOR C(i);
-		IF i<='0' then		
-		C(i+1):=G(i) or  C(0) and P(0);
-		END IF;
-		C(i+1):=G(i) or C(0) and P1 or P2;
-		CN <= C(N);
+
 	END PROCESS PALU;
 	
 end Behavioral;

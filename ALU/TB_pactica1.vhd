@@ -2,15 +2,15 @@
 -- Company: 
 -- Engineer:
 --
--- Create Date:   13:27:43 08/24/2017
+-- Create Date:   17:23:35 08/31/2017
 -- Design Name:   
--- Module Name:   C:/Users/reymy/Documents/quinto/arquitortura/ALU/TB_ALU2.vhd
+-- Module Name:   C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/TB_pactica1.vhd
 -- Project Name:  ALU
 -- Target Device:  
 -- Tool versions:  
 -- Description:   
 -- 
--- VHDL Test Bench Created by ISE for module: ALU2
+-- VHDL Test Bench Created by ISE for module: ALU
 -- 
 -- Dependencies:
 -- 
@@ -32,32 +32,34 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY TB_ALU2 IS
-END TB_ALU2;
+ENTITY TB_pactica1 IS
+END TB_pactica1;
  
-ARCHITECTURE behavior OF TB_ALU2 IS 
+ARCHITECTURE behavior OF TB_pactica1 IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT ALU2
+    COMPONENT ALU
     PORT(
-         A : IN  std_logic_vector(3 downto 0);
-         B : IN  std_logic_vector(3 downto 0);
+         C4 : OUT  std_logic;
+         C0 : IN  std_logic;
          BINVERT : IN  std_logic;
          S : OUT  std_logic_vector(3 downto 0);
-         C4 : OUT  std_logic
+         A : IN  std_logic_vector(3 downto 0);
+         B : IN  std_logic_vector(3 downto 0)
         );
     END COMPONENT;
     
 
    --Inputs
+   signal C0 : std_logic := '0';
+   signal BINVERT : std_logic := '0';
    signal A : std_logic_vector(3 downto 0) := (others => '0');
    signal B : std_logic_vector(3 downto 0) := (others => '0');
-   signal BINVERT : std_logic := '0';
 
  	--Outputs
-   signal S : std_logic_vector(3 downto 0);
    signal C4 : std_logic;
+   signal S : std_logic_vector(3 downto 0);
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
@@ -66,12 +68,13 @@ ARCHITECTURE behavior OF TB_ALU2 IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: ALU2 PORT MAP (
-          A => A,
-          B => B,
+   uut: ALU PORT MAP (
+          C4 => C4,
+          C0 => C0,
           BINVERT => BINVERT,
           S => S,
-          C4 => C4
+          A => A,
+          B => B
         );
 
    -- Clock process definitions
@@ -88,6 +91,7 @@ BEGIN
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
+		
       wait for 100 ns;
 		A<="0001";
 		B<="0001";

@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.31 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Parameter xsthdpdir set to C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.31 secs
+Total CPU time to Xst completion: 0.19 secs
  
 --> Reading design: ALU.prj
 
@@ -44,8 +44,8 @@ Parsing entity <ALU>.
 Parsing architecture <Behavioral> of entity <alu>.
 
 
-Total REAL time to Xst completion: 8.00 secs
-Total CPU time to Xst completion: 7.62 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.72 secs
  
 --> 
 

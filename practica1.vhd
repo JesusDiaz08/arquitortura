@@ -31,7 +31,6 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity ALU is
     Port ( C4 : out  STD_LOGIC;
-			  C0 : IN STD_LOGIC;
 			  BINVERT : in  STD_LOGIC;
 			  S : out  STD_LOGIC_VECTOR (3 downto 0);
            A : in  STD_LOGIC_VECTOR (3 downto 0);
@@ -45,35 +44,35 @@ begin
 		variable P : STD_LOGIC_VECTOR(3 DOWNTO 0);
 		variable EB : STD_LOGIC_VECTOR(3 DOWNTO 0);
 		variable C : STD_LOGIC_VECTOR(4 DOWNTO 0);
-		variable PI : STD_LOGIC;
-		variable PK : STD_LOGIC;
-		variable GJ : STD_LOGIC;
+		variable PI,PK,GJ : STD_LOGIC;
 		variable Saux : STD_LOGIC_VECTOR (3 downto 0);
 	BEGIN
-	   C(0) := C0;
+	   C(0) := BINVERT;
 		GJ :='0';
 		FOR i IN 0 TO 3 LOOP --1
+			EB(i) := B(i) XOR BINVERT;
 		
-			G(i) := (A(i) AND B(i));
-			P(i) := (A(i) xor B(i)); -- meter al for y 0 to i
+			G(i) := (A(i) AND EB(i));
+			P(i) := (A(i) xor EB(i)); -- meter al for y 0 to i
 			PI := P(0);
-			
+
+			GJ :='0';		
 			FOR i2 IN 1 TO i LOOP --2
 				PI := PI AND P(i2);
 			END LOOP;--2
-			
+
 			FOR j IN 0 TO i-1 LOOP --3
-				PK := P(j+1);
-				FOR k IN j+2 TO i LOOP --4
+				PK:='1';
+				FOR k IN j+1 TO i LOOP --4
 					PK := PK AND P(k);
 				END LOOP;--4
 				GJ := (G(j) and PK) or GJ;
 			END LOOP;--3
-			
-			C(i+1) := G(i) or (C0 and PI) or GJ; 
-			EB(i) := B(i) XOR BINVERT;
+	
 			Saux(i) := A(i) XOR EB(i) XOR C(i);
-		END LOOP;--1
+			C(i+1) := G(i) or (C(0) and PI) or GJ; 
+			
+			END LOOP;--1
 		C4 <= C(4);
 		S <= Saux;
 	END PROCESS PALU;
