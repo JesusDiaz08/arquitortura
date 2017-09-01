@@ -50,65 +50,71 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1503597806" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1503597806">
+    <transform xil_pn:end_ts="1504235247" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1504235247">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1504218964" xil_pn:in_ck="-2634887667373958549" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1504218964">
+    <transform xil_pn:end_ts="1504236652" xil_pn:in_ck="-8357284360082263781" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1504236652">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="../practica1.vhd"/>
+      <outfile xil_pn:name="ALU2.vhd"/>
+      <outfile xil_pn:name="TB_ALU2.vhd"/>
+      <outfile xil_pn:name="TB_pactica1.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1503599260" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-7244021156221834433" xil_pn:start_ts="1503599260">
+    <transform xil_pn:end_ts="1504235247" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-7244021156221834433" xil_pn:start_ts="1504235247">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1503599260" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2581242551616037443" xil_pn:start_ts="1503599260">
+    <transform xil_pn:end_ts="1504235247" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-2581242551616037443" xil_pn:start_ts="1504235247">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1503598661" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-1971627611873050784" xil_pn:start_ts="1503598661">
+    <transform xil_pn:end_ts="1504235247" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-1971627611873050784" xil_pn:start_ts="1504235247">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1504218975" xil_pn:in_ck="-2634887667373958549" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1504218975">
+    <transform xil_pn:end_ts="1504236509" xil_pn:in_ck="-8357284360082263781" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1504236509">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="../practica1.vhd"/>
+      <outfile xil_pn:name="ALU2.vhd"/>
+      <outfile xil_pn:name="TB_ALU2.vhd"/>
+      <outfile xil_pn:name="TB_pactica1.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1504218980" xil_pn:in_ck="-2634887667373958549" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-8760581740633400258" xil_pn:start_ts="1504218975">
+    <transform xil_pn:end_ts="1504236529" xil_pn:in_ck="-8357284360082263781" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-8760581740633400258" xil_pn:start_ts="1504236509">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
+      <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="TB_ALU2_beh.prj"/>
+      <outfile xil_pn:name="TB_ALU2_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1504218980" xil_pn:in_ck="-3766764055703803272" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="5206338998166765643" xil_pn:start_ts="1504218980">
+    <transform xil_pn:end_ts="1504236530" xil_pn:in_ck="-3766764055703803272" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="5206338998166765643" xil_pn:start_ts="1504236529">
       <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="NotReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="TB_ALU2_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1503598783" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1503598783">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -145,9 +151,15 @@
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="ALU2.lso"/>
+      <outfile xil_pn:name="ALU2.prj"/>
+      <outfile xil_pn:name="ALU2.syr"/>
+      <outfile xil_pn:name="ALU2.xst"/>
+      <outfile xil_pn:name="ALU2_xst.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
     </transform>
   </transforms>
 

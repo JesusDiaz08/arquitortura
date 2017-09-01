@@ -92,7 +92,7 @@ BEGIN
 		A<="0001";
 		B<="0001";
 		BINVERT<='1';
-
+		wait for 100 ns;
       --wait for <clock>_period*10;
 
       -- insert stimulus here 

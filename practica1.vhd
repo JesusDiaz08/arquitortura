@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date:    17:45:32 08/28/2017 
+-- Create Date:    17:N5:N-12 08/28/2017 
 -- Design Name: 
 -- Module Name:    ALU - Behavioral 
 -- Project Name: 
@@ -30,37 +30,36 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity ALU is
-    Port ( C4 : out  STD_LOGIC;
+	 GENERIC(N: integer:=4);
+    Port ( CN : out  STD_LOGIC;
 			  BINVERT : in  STD_LOGIC;
-			  S : out  STD_LOGIC_VECTOR (3 downto 0);
-           A : in  STD_LOGIC_VECTOR (3 downto 0);
-           B : in  STD_LOGIC_VECTOR (3 downto 0));
+			  S : out  STD_LOGIC_VECTOR (N-1 downto 0);
+           A : in  STD_LOGIC_VECTOR (N-1 downto 0);
+           B : in  STD_LOGIC_VECTOR (N-1 downto 0));
 end ALU;
 
 architecture Behavioral of ALU is
 begin
 	PALU : PROCESS(A, B, BINVERT)
-		variable G : STD_LOGIC_VECTOR(3 DOWNTO 0);
-		variable P : STD_LOGIC_VECTOR(3 DOWNTO 0);
-		variable EB : STD_LOGIC_VECTOR(3 DOWNTO 0);
-		variable C : STD_LOGIC_VECTOR(4 DOWNTO 0);
+		variable G : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
+		variable P : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
+		variable EB : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
+		variable C : STD_LOGIC_VECTOR(N DOWNTO 0);
 		variable PI,PK,GJ : STD_LOGIC;
-		variable Saux : STD_LOGIC_VECTOR (3 downto 0);
 	BEGIN
 	   C(0) := BINVERT;
-		GJ :='0';
-		FOR i IN 0 TO 3 LOOP --1
+		FOR i IN 0 TO N-1 LOOP --1
 			EB(i) := B(i) XOR BINVERT;
-		
 			G(i) := (A(i) AND EB(i));
-			P(i) := (A(i) xor EB(i)); -- meter al for y 0 to i
-			PI := P(0);
-
-			GJ :='0';		
+			P(i) := (A(i) xor EB(i)); 
+			S(i) <= A(i) XOR EB(i) XOR C(i);
+			
+			PI :='1';
 			FOR i2 IN 1 TO i LOOP --2
 				PI := PI AND P(i2);
 			END LOOP;--2
 
+			GJ :='0';	
 			FOR j IN 0 TO i-1 LOOP --3
 				PK:='1';
 				FOR k IN j+1 TO i LOOP --4
@@ -69,12 +68,10 @@ begin
 				GJ := (G(j) and PK) or GJ;
 			END LOOP;--3
 	
-			Saux(i) := A(i) XOR EB(i) XOR C(i);
-			C(i+1) := G(i) or (C(0) and PI) or GJ; 
+			C(i+1) := G(i) or PI or GJ; 
 			
 			END LOOP;--1
-		C4 <= C(4);
-		S <= Saux;
+		CN <= C(N);
 	END PROCESS PALU;
 end Behavioral;
 

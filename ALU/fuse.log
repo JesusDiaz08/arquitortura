@@ -1,4 +1,4 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/TB_ALU2_isim_beh.exe" -prj "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/TB_ALU2_beh.prj" "work.TB_ALU2" 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/TB_ALU2_isim_beh.exe" -prj "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/TB_ALU2_beh.prj" "TB_ALU2" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -14,5 +14,5 @@ Compiling architecture behavior of entity tb_alu2
 Time Resolution for simulation is 1ps.
 Compiled 5 VHDL Units
 Built simulation executable C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/TB_ALU2_isim_beh.exe
-Fuse Memory Usage: 29868 KB
-Fuse CPU Usage: 889 ms
+Fuse Memory Usage: 29876 KB
+Fuse CPU Usage: 671 ms
