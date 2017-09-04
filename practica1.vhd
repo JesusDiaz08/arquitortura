@@ -54,23 +54,23 @@ begin
 			P(i) := (A(i) xor EB(i)); 
 			S(i) <= A(i) XOR EB(i) XOR C(i);
 			
-			PI :='1';
-			FOR i2 IN 1 TO i LOOP --2
-				PI := PI AND P(i2);
-			END LOOP;--2
-
 			GJ :='0';	
-			FOR j IN 0 TO i-1 LOOP --3
+			FOR j IN 0 TO i-1 LOOP --2
 				PK:='1';
-				FOR k IN j+1 TO i LOOP --4
+				FOR k IN j+1 TO i LOOP --3
 					PK := PK AND P(k);
-				END LOOP;--4
-				GJ := (G(j) and PK) or GJ;
-			END LOOP;--3
-	
-			C(i+1) := G(i) or PI or GJ; 
+				END LOOP;--3
+				GJ := GJ or (G(j) and PK);
+			END LOOP;--2
 			
-			END LOOP;--1
+			PI :='1';
+			FOR i2 IN 0 TO i LOOP --4
+				PI := PI AND P(i2);
+			END LOOP;--4
+	
+			C(i+1) := G(i) or GJ or (C(0) AND PI); 
+			
+		END LOOP;--1
 		CN <= C(N);
 	END PROCESS PALU;
 end Behavioral;

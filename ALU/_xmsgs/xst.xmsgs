@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="HDLCompiler" num="746" delta="new" >"C:\Users\ANDRES\Documents\GitHub\arquitortura\practica1.vhd" Line 58: Range is empty (null range)
+</msg>
+
 </messages>
 

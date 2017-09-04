@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-08-24T13:03:40</DateModified>
+  <DateModified>2017-09-04T12:35:07</DateModified>
   <ModuleName>ALU</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/reymy/Documents/quinto/arquitortura/ALU/iseconfig/ALU.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/reymy/Documents/quinto/arquitortura/ALU</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/iseconfig/ALU.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU\</ImplementationReportsDirectory>
   <DateInitialized>2017-08-24T12:45:41</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
@@ -17,8 +17,8 @@
     <toc-item title="Performance Summary" target="Performance Summary" />
     <toc-item title="Failing Constraints" target="Failing Constraints" />
     <toc-item title="Detailed Reports" target="Detailed Reports" />
-    <table-item tableKey="DetailedReports" tableState="CollapsedTable" />
-    <table-item tableKey="SecondaryReports" tableState="CollapsedTable" />
+    <table-item tableState="CollapsedTable" tableKey="DetailedReports" />
+    <table-item tableState="CollapsedTable" tableKey="SecondaryReports" />
    </view>
    <view inputState="Unknown" program="implementation" contextTags="FPGA_ONLY" hidden="true" type="HTML" file="ALU_envsettings.html" label="System Settings" />
    <view inputState="Translated" program="map" locator="MAP_IOB_TABLE" contextTags="FPGA_ONLY" type="IOBProperties" file="ALU_map.xrpt" label="IOB Properties" />
