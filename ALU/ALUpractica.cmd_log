@@ -1,0 +1,2 @@
+vhdtdtfi -lib work ALUpractica.vhd -prj ALU -o ALUpractica.spl -module ALUpractica -template C:/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family artix7 ALUpractica.spl C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica.sym 

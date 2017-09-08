@@ -37,7 +37,10 @@ entity ALUpractica is
 		OP : in  STD_LOGIC_VECTOR(1 downto 0);
 		RES : out  STD_LOGIC_VECTOR(N-1 downto 0);
 		A : in  STD_LOGIC_VECTOR (N-1 downto 0);
-      B : in  STD_LOGIC_VECTOR (N-1 downto 0));
+      B : in  STD_LOGIC_VECTOR (N-1 downto 0);
+		--Banderas
+		BZ,BC,BN, BOV: in  STD_LOGIC
+		);
 end ALUpractica;
 
 architecture Behavioral of ALUpractica is
@@ -49,15 +52,16 @@ begin
 			variable C : STD_LOGIC_VECTOR(N DOWNTO 0);
 			variable PI,PK,GJ : STD_LOGIC;
 		BEGIN
-			C:= (OTHERS => '0'); --el valor es cero para todos sus bits
-			 P:= (OTHERS => '0');
+			C:= (OTHERS => '0'); --OTHERS nos indica que el valor es cero para todos sus bits
+			P:= (OTHERS => '0');
 			G:= (OTHERS => '0');
 			C(0) := BINVERT;
 			FOR i IN 0 TO N-1 LOOP --1
 			
+				MUXB(i) := B(i) XOR BINVERT;
+				MUXA(i) := A(i) XOR AINVERT;
+					
 				CASE OP IS
-					MUXB(i) := B(i) XOR BINVERT;
-					MUXA(i) := A(i) XOR AINVERT;
 				
 					--operaciones
 					WHEN "00"=>
@@ -86,10 +90,35 @@ begin
 							PI := PI AND P(i2);
 						END LOOP;--4
 				
-						C(i+1) := G(i) or GJ or (C(0) AND PI); 
+						C(i+1) := G(i) or GJ or (C(0) AND PI);
+										
 				END CASE;
 			END LOOP;--1
 			CN <= C(N);
+			--Banderas--
+			--Bandera carry
+			if(CN<='0') then
+				BC<='0';
+			else BC<='1';
+			end if;
+			--Bandera negative
+			if(RES(N)<='0') then
+				BN<='0';
+			else BN<='1';
+			end if;
+			--Bandera overflow
+			if((C(N) xor C(N-1))<='1') then
+				BOV<='1';
+			else BOV<='0';
+			end if;
+			--Bandera zero
+			if(RES<="00000") then
+				BZ<='1';
+			else BZ<='0';
+			end if;				
+			
+				
+			
 		END PROCESS PALU;
 END Behavioral;
 

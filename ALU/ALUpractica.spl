@@ -1,0 +1,10 @@
+[Inputs]
+BINVERT
+AINVERT
+=OP[1:0]=
+=A[3:0]=
+=B[3:0]=
+[Outputs]
+CN
+=RES[3:0]=
+[BiDir]
