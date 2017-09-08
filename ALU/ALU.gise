@@ -101,12 +101,14 @@
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
     <transform xil_pn:end_ts="1504546497" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1504546496">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1504546497" xil_pn:in_ck="-7141991050601395591" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1504546497">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="../practica1.vhd"/>
@@ -114,6 +116,7 @@
     </transform>
     <transform xil_pn:end_ts="1504548507" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1504548507">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1504548507" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-1713701936175210205" xil_pn:start_ts="1504548507">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -143,7 +146,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ALU.lso"/>
       <outfile xil_pn:name="ALU.ngc"/>
@@ -166,6 +173,7 @@
     <transform xil_pn:end_ts="1504549132" xil_pn:in_ck="-5251767002663432654" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-2097111236682600634" xil_pn:start_ts="1504549111">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="ALU.bld"/>
       <outfile xil_pn:name="ALU.ngd"/>
       <outfile xil_pn:name="ALU_ngdbuild.xrpt"/>
@@ -175,6 +183,7 @@
     <transform xil_pn:end_ts="1504549208" xil_pn:in_ck="-5251765596254814413" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="2100985583056581773" xil_pn:start_ts="1504549132">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ALU.pcf"/>
@@ -190,6 +199,7 @@
     <transform xil_pn:end_ts="1504549296" xil_pn:in_ck="-1930229749551217716" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1504549208">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="ALU.ncd"/>
       <outfile xil_pn:name="ALU.pad"/>
       <outfile xil_pn:name="ALU.par"/>
@@ -204,6 +214,7 @@
     <transform xil_pn:end_ts="1504549399" xil_pn:in_ck="87022287397" xil_pn:name="TRANEXT_bitFile_virtex7" xil_pn:prop_ck="306664139534459597" xil_pn:start_ts="1504549300">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ALU.ut"/>
@@ -218,10 +229,12 @@
     <transform xil_pn:end_ts="1504549414" xil_pn:in_ck="129639531599" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="-6383737364629502382" xil_pn:start_ts="1504549410">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
     <transform xil_pn:end_ts="1504549296" xil_pn:in_ck="-5251951242192422225" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1504549260">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="ALU.twr"/>
       <outfile xil_pn:name="ALU.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
