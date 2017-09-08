@@ -1,0 +1,10 @@
+Command line:
+   ALUpractica_TB_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  53149
+
+Fri Sep 08 12:01:29 2017
+
+
+ Elaboration Time: 0.421875 sec

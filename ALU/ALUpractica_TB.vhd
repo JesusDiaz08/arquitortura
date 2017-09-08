@@ -45,9 +45,13 @@ ARCHITECTURE behavior OF ALUpractica_TB IS
          BINVERT : IN  std_logic;
          AINVERT : IN  std_logic;
          OP : IN  std_logic_vector(1 downto 0);
-         RES : OUT  std_logic_vector(3 downto 0);
+         RES : INOUT  std_logic_vector(3 downto 0);
          A : IN  std_logic_vector(3 downto 0);
-         B : IN  std_logic_vector(3 downto 0)
+         B : IN  std_logic_vector(3 downto 0);
+			BZ: OUT STD_LOGIC;
+			BC: OUT STD_LOGIC;
+			BN: OUT STD_LOGIC;
+			BOV: OUT STD_LOGIC
         );
     END COMPONENT;
     
@@ -62,6 +66,7 @@ ARCHITECTURE behavior OF ALUpractica_TB IS
  	--Outputs
    signal CN : std_logic;
    signal RES : std_logic_vector(3 downto 0);
+	signal BZ,BC,BN, BOV: STD_LOGIC;
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
@@ -77,7 +82,11 @@ BEGIN
           OP => OP,
           RES => RES,
           A => A,
-          B => B
+          B => B,
+			 BZ => BZ,
+			 BC => BC,
+			 BN => BN,
+			 BOV => BOV
         );
 
    -- Clock process definitions
@@ -95,6 +104,12 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
       wait for 100 ns;	
+
+		OP<="11";
+		AINVERT<='0';
+		BINVERT<='0';
+		A<="1000";
+		B<="0000";
 
       --wait for <clock>_period*10;
 

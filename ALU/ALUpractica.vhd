@@ -35,11 +35,11 @@ entity ALUpractica is
 		BINVERT : in  STD_LOGIC;
 		AINVERT : in  STD_LOGIC;
 		OP : in  STD_LOGIC_VECTOR(1 downto 0);
-		RES : out  STD_LOGIC_VECTOR(N-1 downto 0);
+		RES : inout  STD_LOGIC_VECTOR(N-1 downto 0); --inout
 		A : in  STD_LOGIC_VECTOR (N-1 downto 0);
       B : in  STD_LOGIC_VECTOR (N-1 downto 0);
 		--Banderas
-		BZ,BC,BN, BOV: in  STD_LOGIC
+		BZ,BC,BN, BOV: out  STD_LOGIC
 		);
 end ALUpractica;
 
@@ -50,7 +50,7 @@ begin
 			variable P : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
 			variable MUXA,MUXB : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
 			variable C : STD_LOGIC_VECTOR(N DOWNTO 0);
-			variable PI,PK,GJ : STD_LOGIC;
+			variable PI,PK,GJ,VNOR : STD_LOGIC;
 		BEGIN
 			C:= (OTHERS => '0'); --OTHERS nos indica que el valor es cero para todos sus bits
 			P:= (OTHERS => '0');
@@ -94,31 +94,39 @@ begin
 										
 				END CASE;
 			END LOOP;--1
+			
 			CN <= C(N);
 			--Banderas--
-			--Bandera carry
-			if(CN<='0') then
-				BC<='0';
-			else BC<='1';
+			--Checamos si son operaciones aritmeticas
+			if(OP<="11") then
+				--Bandera carry			
+				if(C(N)<='0') then
+					BC<='0';
+				else BC<='1';
+				end if;
+				--Bandera overflow
+				if((C(N) xor C(N-1))<='1') then
+					BOV<='1';
+				else BOV<='0';
+				end if;			
 			end if;
+			
+			--Estas banderas si se aplican a cualquier caso
 			--Bandera negative
-			if(RES(N)<='0') then
+			if(RES(N-1)<='0') then
 				BN<='0';
 			else BN<='1';
 			end if;
-			--Bandera overflow
-			if((C(N) xor C(N-1))<='1') then
-				BOV<='1';
-			else BOV<='0';
-			end if;
 			--Bandera zero
-			if(RES<="00000") then
-				BZ<='1';
-			else BZ<='0';
-			end if;				
-			
-				
-			
+--			VNOR :='0';
+--			FOR M IN 0 TO N-2 LOOP
+--				VNOR := RES(M) or RES(M+2);
+--			END LOOP;
+--			if(VNOR<='1') then
+--				BN<='1';
+--			else BN<='0';
+--			end if;
+		
 		END PROCESS PALU;
 END Behavioral;
 
