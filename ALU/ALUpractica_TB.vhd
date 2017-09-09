@@ -104,13 +104,12 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
       wait for 100 ns;	
-
 		OP<="11";
 		AINVERT<='0';
-		BINVERT<='0';
-		A<="1000";
-		B<="0000";
-
+		BINVERT<='1';
+		A<="1111";
+		B<="1111";
+		wait for 100 ns;
       --wait for <clock>_period*10;
 
       -- insert stimulus here 

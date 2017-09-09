@@ -4,8 +4,8 @@
      changes made to this file may result in unpredictable
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
-<DeviceUsageSummary rev="2">
-<DesignStatistics TimeStamp="Mon Sep 04 13:23:02 2017"><group name="NetStatistics">
+<DeviceUsageSummary rev="3">
+<DesignStatistics TimeStamp="Sat Sep 09 15:17:07 2017"><group name="NetStatistics">
 <item name="NumNets_Active" rev="2">
 <attrib name="value" value="29"/></item>
 <item name="NumNets_Vcc" rev="2">
@@ -58,61 +58,38 @@
 <attrib name="value" value="9"/></item>
 </group>
 <group name="MiscellaneousStatistics">
-<item name="AGG_BONDED_IO" rev="1">
+<item name="AGG_BONDED_IO" rev="3">
 <attrib name="value" value="14"/></item>
-<item name="AGG_IO" rev="1">
+<item name="AGG_IO" rev="3">
 <attrib name="value" value="14"/></item>
-<item name="AGG_LOCED_IO" rev="1">
+<item name="AGG_LOCED_IO" rev="3">
 <attrib name="value" value="14"/></item>
-<item name="AGG_SLICE" rev="1">
+<item name="AGG_SLICE" rev="3">
 <attrib name="value" value="3"/></item>
-<item name="NUM_BONDED_IOB" rev="1">
+<item name="NUM_BONDED_IOB" rev="3">
 <attrib name="value" value="1"/></item>
-<item name="NUM_BONDED_IOB33" rev="1">
+<item name="NUM_BONDED_IOB33" rev="3">
 <attrib name="value" value="13"/></item>
-<item name="NUM_BSLUTONLY" rev="1">
+<item name="NUM_BSLUTONLY" rev="3">
 <attrib name="value" value="5"/></item>
-<item name="NUM_BSUSED" rev="1">
+<item name="NUM_BSUSED" rev="3">
 <attrib name="value" value="5"/></item>
-<item name="NUM_LOCED_IOB" rev="1">
+<item name="NUM_LOCED_IOB" rev="3">
 <attrib name="value" value="1"/></item>
-<item name="NUM_LOCED_IOB33" rev="1">
+<item name="NUM_LOCED_IOB33" rev="3">
 <attrib name="value" value="13"/></item>
-<item name="NUM_LOGIC_O5ANDO6" rev="1">
+<item name="NUM_LOGIC_O5ANDO6" rev="3">
 <attrib name="value" value="1"/></item>
-<item name="NUM_LOGIC_O6ONLY" rev="1">
+<item name="NUM_LOGIC_O6ONLY" rev="3">
 <attrib name="value" value="4"/></item>
-<item name="NUM_SLICEL" rev="1">
+<item name="NUM_SLICEL" rev="3">
 <attrib name="value" value="3"/></item>
-<item name="NUM_SLICE_CYINIT" rev="1">
+<item name="NUM_SLICE_CYINIT" rev="3">
 <attrib name="value" value="6"/></item>
-<item name="NUM_SLICE_UNUSEDCTRL" rev="1">
+<item name="NUM_SLICE_UNUSEDCTRL" rev="3">
 <attrib name="value" value="3"/></item>
 </group>
 </DesignStatistics>
-<DeviceUsage TimeStamp="Mon Sep 04 13:23:02 2017"><group name="SiteSummary">
-<item name="HARD0" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
-<item name="IOB" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
-<item name="IOB33" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="13"/></item>
-<item name="IOB33_INBUF_EN" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="8"/></item>
-<item name="IOB33_OUTBUF" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="5"/></item>
-<item name="IOB_INBUF_EN" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
-<item name="LUT5" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="1"/></item>
-<item name="LUT6" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="5"/></item>
-<item name="PAD" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="14"/></item>
-<item name="SLICEL" rev="2">
-<attrib name="total" value="1000000"/><attrib name="used" value="3"/></item>
-</group>
-</DeviceUsage>
 <ReportConfigData TimeStamp="Mon Sep 04 13:23:02 2017"><group name="IOB_INBUF_EN">
 <item name="IBUF_LOW_PWR" rev="2">
 <attrib name="TRUE" value="1"/></item>

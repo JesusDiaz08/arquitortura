@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="746" delta="unknown" >"C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica.vhd" Line 80: Range is empty (null range)
+<msg type="warning" file="HDLCompiler" num="746" delta="unknown" >"C:/Users/reymy/Documents/quinto/arquitortura/ALU/ALUpractica.vhd" Line 80: Range is empty (null range)
 </msg>
 
 </messages>

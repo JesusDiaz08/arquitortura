@@ -95,37 +95,25 @@ begin
 				END CASE;
 			END LOOP;--1
 			
-			CN <= C(N);
+			CN <= C(N); -- Creo que CN ya lo la necesitamos
 			--Banderas--
 			--Checamos si son operaciones aritmeticas
 			if(OP<="11") then
 				--Bandera carry			
-				if(C(N)<='0') then
-					BC<='0';
-				else BC<='1';
-				end if;
+				BC <= C(N);
 				--Bandera overflow
-				if((C(N) xor C(N-1))<='1') then
-					BOV<='1';
-				else BOV<='0';
-				end if;			
+				BOV<= C(N) xor C(N-1); -- Creo que es xnor
 			end if;
 			
 			--Estas banderas si se aplican a cualquier caso
 			--Bandera negative
-			if(RES(N-1)<='0') then
-				BN<='0';
-			else BN<='1';
-			end if;
+			BN<=RES(N-1);
 			--Bandera zero
---			VNOR :='0';
---			FOR M IN 0 TO N-2 LOOP
---				VNOR := RES(M) or RES(M+2);
---			END LOOP;
---			if(VNOR<='1') then
---				BN<='1';
---			else BN<='0';
---			end if;
+			VNOR :='0';
+			FOR M IN 0 TO N-3 LOOP
+				VNOR := RES(M) or RES(M+2) or VNOR;
+			END LOOP;
+			BZ <= not VNOR;
 		
 		END PROCESS PALU;
 END Behavioral;
