@@ -105,9 +105,11 @@ begin
 				else BC<='1';
 				end if;
 				--Bandera overflow
+				
 				if((C(N) xor C(N-1))<='1') then
 					BOV<='1';
 				else BOV<='0';
+				
 				end if;			
 			end if;
 			
@@ -118,14 +120,15 @@ begin
 			else BN<='1';
 			end if;
 			--Bandera zero
---			VNOR :='0';
---			FOR M IN 0 TO N-2 LOOP
---				VNOR := RES(M) or RES(M+2);
---			END LOOP;
---			if(VNOR<='1') then
---				BN<='1';
---			else BN<='0';
---			end if;
+			VNOR :=RES(0);
+			FOR M IN 1 TO N-1 LOOP
+				VNOR := VNOR or RES(M);
+			END LOOP;
+			
+			if(VNOR<='1') then
+				BZ<='0';
+			else BZ<='1';
+			end if;
 		
 		END PROCESS PALU;
 END Behavioral;

@@ -105,11 +105,11 @@ BEGIN
       -- hold reset state for 100 ns.
       wait for 100 ns;	
 
-		OP<="11";
+		OP<="10";
 		AINVERT<='0';
 		BINVERT<='0';
-		A<="1000";
-		B<="0000";
+		A<="0101";
+		B<="1110";
 
       --wait for <clock>_period*10;
 
