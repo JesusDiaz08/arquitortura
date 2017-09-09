@@ -1,16 +1,24 @@
 Release 14.7 - xst P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
---> Parameter TMPDIR set to C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/xst/projnav.tmp
+--> Parameter TMPDIR set to C:/Users/reymy/Documents/quinto/arquitortura/ALU/xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
+<<<<<<< HEAD
 Total CPU time to Xst completion: 0.16 secs
+=======
+Total CPU time to Xst completion: 0.18 secs
+>>>>>>> origin/master
  
---> Parameter xsthdpdir set to C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/xst
+--> Parameter xsthdpdir set to C:/Users/reymy/Documents/quinto/arquitortura/ALU/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
+<<<<<<< HEAD
 Total CPU time to Xst completion: 0.16 secs
+=======
+Total CPU time to Xst completion: 0.19 secs
+>>>>>>> origin/master
  
 --> Reading design: ALUpractica.prj
 
@@ -39,17 +47,22 @@ TABLE OF CONTENTS
 =========================================================================
 *                          HDL Parsing                                  *
 =========================================================================
-Parsing VHDL file "C:\Users\ANDRES\Documents\GitHub\arquitortura\ALU\ALUpractica.vhd" into library work
+Parsing VHDL file "C:\Users\reymy\Documents\quinto\arquitortura\ALU\ALUpractica.vhd" into library work
 Parsing entity <ALUpractica>.
 Parsing architecture <Behavioral> of entity <alupractica>.
 
 
+<<<<<<< HEAD
 Total REAL time to Xst completion: 11.00 secs
 Total CPU time to Xst completion: 10.80 secs
+=======
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 10.41 secs
+>>>>>>> origin/master
  
 --> 
 
-Total memory usage is 291892 kilobytes
+Total memory usage is 245628 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

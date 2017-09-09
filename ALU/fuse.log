@@ -1,12 +1,12 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB_isim_beh.exe" -prj "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB_beh.prj" "work.ALUpractica_TB" 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "C:/Users/reymy/Documents/quinto/arquitortura/ALU/ALUpractica_TB_isim_beh.exe" -prj "C:/Users/reymy/Documents/quinto/arquitortura/ALU/ALUpractica_TB_beh.prj" "work.ALUpractica_TB" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica.vhd" into library work
-Parsing VHDL file "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB.vhd" into library work
+Parsing VHDL file "C:/Users/reymy/Documents/quinto/arquitortura/ALU/ALUpractica.vhd" into library work
+Parsing VHDL file "C:/Users/reymy/Documents/quinto/arquitortura/ALU/ALUpractica_TB.vhd" into library work
 Starting static elaboration
-WARNING:HDLCompiler:746 - "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica.vhd" Line 80: Range is empty (null range)
+WARNING:HDLCompiler:746 - "C:/Users/reymy/Documents/quinto/arquitortura/ALU/ALUpractica.vhd" Line 80: Range is empty (null range)
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
@@ -14,6 +14,12 @@ Compiling architecture behavioral of entity ALUpractica [\ALUpractica(4)\]
 Compiling architecture behavior of entity alupractica_tb
 Time Resolution for simulation is 1ps.
 Compiled 5 VHDL Units
+<<<<<<< HEAD
 Built simulation executable C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB_isim_beh.exe
 Fuse Memory Usage: 30112 KB
 Fuse CPU Usage: 703 ms
+=======
+Built simulation executable C:/Users/reymy/Documents/quinto/arquitortura/ALU/ALUpractica_TB_isim_beh.exe
+Fuse Memory Usage: 30256 KB
+Fuse CPU Usage: 546 ms
+>>>>>>> origin/master

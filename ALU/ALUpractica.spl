@@ -6,5 +6,9 @@ AINVERT
 =B[3:0]=
 [Outputs]
 CN
-=RES[3:0]=
+BZ
+BC
+BN
+BOV
 [BiDir]
+=RES[3:0]=

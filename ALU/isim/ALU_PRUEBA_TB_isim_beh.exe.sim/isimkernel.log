@@ -1,0 +1,30 @@
+Command line:
+   ALU_PRUEBA_TB_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  51618
+
+Sat Sep 09 15:31:14 2017
+
+
+ Elaboration Time: 0.09375 sec
+
+ Current Memory Usage: 378.487 Meg
+
+ Total Signals          : 22
+ Total Nets             : 21
+ Total Signal Drivers   : 11
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 2
+ Total Traceable Variables  : 9
+ Total Scalar Nets and Variables : 382
+In process ALUpractica.vhd:PALU 
+ 
+
+ Total Simulation Time: 0.140625 sec
+
+ Current Memory Usage: 378.487 Meg
+
+Sat Sep 09 15:31:24 2017
+

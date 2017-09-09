@@ -49,6 +49,11 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="ALU2.syr"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="ALU2.xst"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ALU2_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALU_PRUEBA_TB_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="ALU_PRUEBA_TB_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="ALU_PRUEBA_TB_isim_beh.wdb"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALU_PRUEBA_TB_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="ALU_envsettings.html"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="ALU_guide.ncd" xil_pn:origination="imported"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="ALU_isim_beh.exe"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="ALU_map.map" xil_pn:subbranch="Map"/>
@@ -65,7 +70,7 @@
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="ALU_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="ALU_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ALU_xst.xrpt"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALUpractica.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALUpractica.prj"/>
     <file xil_pn:fileType="FILE_SPL" xil_pn:name="ALUpractica.spl"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="ALUpractica.stx"/>
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="ALUpractica.sym" xil_pn:origination="imported"/>
@@ -73,8 +78,9 @@
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALUpractica_TB_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="ALUpractica_TB_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="ALUpractica_TB_isim_beh.wdb"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALUpractica_TB_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALUpractica_stx_beh.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALUpractica_TB_stx_beh.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALUpractica_beh.prj"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALUpractica_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TB_ALU2_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_ALU2_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="TB_ALU2_isim_beh.wdb"/>
@@ -113,11 +119,19 @@
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
+<<<<<<< HEAD
     <transform xil_pn:end_ts="1504915128" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1504915128">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1504916931" xil_pn:in_ck="-1160691202162187744" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1504916931">
+=======
+    <transform xil_pn:end_ts="1504988722" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1504988722">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1504989842" xil_pn:in_ck="-1160691202162187744" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1504989842">
+>>>>>>> origin/master
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="../practica1.vhd"/>
@@ -125,6 +139,7 @@
       <outfile xil_pn:name="ALUpractica_TB.vhd"/>
       <outfile xil_pn:name="TB.vhd"/>
     </transform>
+<<<<<<< HEAD
     <transform xil_pn:end_ts="1504915128" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-7382635915988566508" xil_pn:start_ts="1504915128">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -138,6 +153,21 @@
       <status xil_pn:value="ReadyToRun"/>
     </transform>
     <transform xil_pn:end_ts="1504916931" xil_pn:in_ck="-1160691202162187744" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1504916931">
+=======
+    <transform xil_pn:end_ts="1504989532" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-7382635915988566508" xil_pn:start_ts="1504989532">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1504989532" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-6387044745782048270" xil_pn:start_ts="1504989532">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1504988722" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-3964238746545758037" xil_pn:start_ts="1504988722">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1504989846" xil_pn:in_ck="-1160691202162187744" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1504989846">
+>>>>>>> origin/master
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="../practica1.vhd"/>
@@ -145,7 +175,11 @@
       <outfile xil_pn:name="ALUpractica_TB.vhd"/>
       <outfile xil_pn:name="TB.vhd"/>
     </transform>
+<<<<<<< HEAD
     <transform xil_pn:end_ts="1504916936" xil_pn:in_ck="-1160691202162187744" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="240520693014552216" xil_pn:start_ts="1504916931">
+=======
+    <transform xil_pn:end_ts="1504989850" xil_pn:in_ck="-1160691202162187744" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="240520693014552216" xil_pn:start_ts="1504989846">
+>>>>>>> origin/master
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALUpractica_TB_beh.prj"/>
@@ -155,7 +189,11 @@
       <outfile xil_pn:name="isim.log"/>
       <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
+<<<<<<< HEAD
     <transform xil_pn:end_ts="1504916936" xil_pn:in_ck="3266505231688723451" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-5889359142615264603" xil_pn:start_ts="1504916936">
+=======
+    <transform xil_pn:end_ts="1504989850" xil_pn:in_ck="6784623138636963455" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-5889359142615264603" xil_pn:start_ts="1504989850">
+>>>>>>> origin/master
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ALUpractica_TB_isim_beh.wdb"/>
@@ -190,14 +228,12 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1504548850" xil_pn:in_ck="-6339775157835989773" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-5564880825916847054" xil_pn:start_ts="1504548823">
+    <transform xil_pn:end_ts="1504988166" xil_pn:in_ck="8552116619941474796" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-8865411547698934604" xil_pn:start_ts="1504988145">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ALU.lso"/>
@@ -210,6 +246,10 @@
       <outfile xil_pn:name="ALU2.prj"/>
       <outfile xil_pn:name="ALU_stx_beh.prj"/>
       <outfile xil_pn:name="ALU_xst.xrpt"/>
+      <outfile xil_pn:name="ALUpractica.prj"/>
+      <outfile xil_pn:name="ALUpractica_TB_stx_beh.prj"/>
+      <outfile xil_pn:name="ALUpractica_beh.prj"/>
+      <outfile xil_pn:name="ALUpractica_stx_beh.prj"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
@@ -218,7 +258,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1504549132" xil_pn:in_ck="-5251767002663432654" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-2097111236682600634" xil_pn:start_ts="1504549111">
+    <transform xil_pn:end_ts="1504988180" xil_pn:in_ck="-5251767002663432654" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-2097111236682600634" xil_pn:start_ts="1504988166">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
@@ -228,12 +268,10 @@
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1504549208" xil_pn:in_ck="-5251765596254814413" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="2100985583056581773" xil_pn:start_ts="1504549132">
+    <transform xil_pn:end_ts="1504988229" xil_pn:in_ck="-5251765596254814413" xil_pn:name="TRANEXT_map_virtex7" xil_pn:prop_ck="2100985583056581773" xil_pn:start_ts="1504988180">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ALU.pcf"/>
       <outfile xil_pn:name="ALU_map.map"/>
       <outfile xil_pn:name="ALU_map.mrp"/>
@@ -244,7 +282,7 @@
       <outfile xil_pn:name="ALU_usage.xml"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1504549296" xil_pn:in_ck="-1930229749551217716" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1504549208">
+    <transform xil_pn:end_ts="1504988284" xil_pn:in_ck="-1930229749551217716" xil_pn:name="TRANEXT_par_virtex5" xil_pn:prop_ck="-2283627392121029586" xil_pn:start_ts="1504988229">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
@@ -262,8 +300,10 @@
     <transform xil_pn:end_ts="1504549399" xil_pn:in_ck="87022287397" xil_pn:name="TRANEXT_bitFile_virtex7" xil_pn:prop_ck="306664139534459597" xil_pn:start_ts="1504549300">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ALU.ut"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
@@ -279,7 +319,7 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
     </transform>
-    <transform xil_pn:end_ts="1504549296" xil_pn:in_ck="-5251951242192422225" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1504549260">
+    <transform xil_pn:end_ts="1504988284" xil_pn:in_ck="-5251951242192422225" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1504988261">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
