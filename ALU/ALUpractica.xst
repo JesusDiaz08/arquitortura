@@ -1,5 +1,5 @@
-set -tmpdir "C:/Users/reymy/Documents/quinto/arquitortura/ALU/xst/projnav.tmp"
-set -xsthdpdir "C:/Users/reymy/Documents/quinto/arquitortura/ALU/xst"
+set -tmpdir "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/xst"
 run -compileonly yes
 -p xc7a100t-3-csg324
 -top ALUpractica
