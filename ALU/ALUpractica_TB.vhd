@@ -66,7 +66,7 @@ ARCHITECTURE behavior OF ALUpractica_TB IS
  	--Outputs
    signal CN : std_logic;
    signal RES : std_logic_vector(3 downto 0);
-	signal BZ,BC,BN, BOV: STD_LOGIC;
+	signal BOV,BN,BZ,BC: STD_LOGIC;
    -- No clocks detected in port list. Replace <clock> below with 
    -- appropriate port name 
  
@@ -105,11 +105,11 @@ BEGIN
       -- hold reset state for 100 ns.
       wait for 100 ns;	
 
-		OP<="11";
 		AINVERT<='0';
-		BINVERT<='0';
+		BINVERT<='1';
+		OP<="11";
 		A<="0101";
-		B<="0111";
+		B<="1110";
 		wait for 100 ns;
       --wait for <clock>_period*10;
 

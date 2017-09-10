@@ -39,7 +39,7 @@ entity ALUpractica is
 		A : in  STD_LOGIC_VECTOR (N-1 downto 0);
       B : in  STD_LOGIC_VECTOR (N-1 downto 0);
 		--Banderas
-		BZ,BC,BN, BOV: out  STD_LOGIC
+		BOV,BN,BZ,BC: out  STD_LOGIC
 		);
 end ALUpractica;
 
@@ -64,7 +64,6 @@ begin
 				MUXA(i) := A(i) XOR AINVERT;
 					
 				CASE OP IS
-				
 					--operaciones
 					WHEN "00"=>
 						VRES(i):=MUXA(i) AND MUXB(i);
@@ -73,11 +72,10 @@ begin
 					WHEN "10"=>
 						VRES(i):=MUXA(i) XOR MUXB(i);
 					WHEN OTHERS =>
-						
 						G(i) := (MUXA(i) AND MUXB(i));
 						P(i) := (MUXA(i) xor MUXB(i)); 
 						VRES(i):= MUXA(i) XOR MUXB(i) XOR C(i);
-						RES(i) <= VRES(i);
+						--RES(i) <= VRES(i);
 						
 						GJ :='0';	
 						FOR j IN 0 TO i-1 LOOP --2
@@ -92,11 +90,12 @@ begin
 						FOR i2 IN 0 TO i LOOP --4
 							PI := PI AND P(i2);
 						END LOOP;--4
-				
 						C(i+1) := G(i) or GJ or (C(0) AND PI);
-										
 				END CASE;
 			END LOOP;--1
+			
+			--Valores finales
+			RES <= VRES;
 			
 			CN <= C(N); -- Creo que CN ya lo la necesitamos ño, solo lo dejare como para checar doblemente
 			--Banderas--
@@ -107,7 +106,6 @@ begin
 				--Bandera overflow
 				BOV<= C(N) xor C(N-1); -- Creo que es xnor
 			end if;
-			
 			--Estas banderas si se aplican a cualquier caso
 			--Bandera negative
 			BN<=VRES(N-1);
@@ -117,8 +115,6 @@ begin
 				VNOR := VRES(M) or VRES(M+2) or VNOR;
 			END LOOP;
 			BZ <= not VNOR;
-
-		
 		END PROCESS PALU;
 END Behavioral;
 

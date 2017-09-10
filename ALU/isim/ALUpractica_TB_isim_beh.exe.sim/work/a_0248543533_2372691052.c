@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB.vhd";
+static const char *ng0 = "C:/Users/reymy/Documents/quinto/arquitortura/ALU/ALUpractica_TB.vhd";
 
 
 
@@ -53,32 +53,32 @@ LAB6:    *((char **)t1) = &&LAB7;
 
 LAB1:    return;
 LAB4:    xsi_set_current_line(108, ng0);
-    t2 = (t0 + 6989);
-    t5 = (t0 + 4176);
+    t2 = (t0 + 4176);
+    t4 = (t2 + 56U);
+    t5 = *((char **)t4);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
-    t8 = (t7 + 56U);
-    t9 = *((char **)t8);
-    memcpy(t9, t2, 2U);
-    xsi_driver_first_trans_fast(t5);
+    *((unsigned char *)t7) = (unsigned char)2;
+    xsi_driver_first_trans_fast(t2);
     xsi_set_current_line(109, ng0);
     t2 = (t0 + 4240);
     t4 = (t2 + 56U);
     t5 = *((char **)t4);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
-    *((unsigned char *)t7) = (unsigned char)2;
+    *((unsigned char *)t7) = (unsigned char)3;
     xsi_driver_first_trans_fast(t2);
     xsi_set_current_line(110, ng0);
-    t2 = (t0 + 4304);
-    t4 = (t2 + 56U);
-    t5 = *((char **)t4);
+    t2 = (t0 + 6973);
+    t5 = (t0 + 4304);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
-    *((unsigned char *)t7) = (unsigned char)2;
-    xsi_driver_first_trans_fast(t2);
+    t8 = (t7 + 56U);
+    t9 = *((char **)t8);
+    memcpy(t9, t2, 2U);
+    xsi_driver_first_trans_fast(t5);
     xsi_set_current_line(111, ng0);
-    t2 = (t0 + 6991);
+    t2 = (t0 + 6975);
     t5 = (t0 + 4368);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
@@ -87,7 +87,7 @@ LAB4:    xsi_set_current_line(108, ng0);
     memcpy(t9, t2, 4U);
     xsi_driver_first_trans_fast(t5);
     xsi_set_current_line(112, ng0);
-    t2 = (t0 + 6995);
+    t2 = (t0 + 6979);
     t5 = (t0 + 4432);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
