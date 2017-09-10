@@ -35,7 +35,7 @@ entity ALUpractica is
 		BINVERT : in  STD_LOGIC;
 		AINVERT : in  STD_LOGIC;
 		OP : in  STD_LOGIC_VECTOR(1 downto 0);
-		RES : inout  STD_LOGIC_VECTOR(N-1 downto 0); --inout
+		RES : out  STD_LOGIC_VECTOR(N-1 downto 0); --inout
 		A : in  STD_LOGIC_VECTOR (N-1 downto 0);
       B : in  STD_LOGIC_VECTOR (N-1 downto 0);
 		--Banderas
@@ -47,6 +47,8 @@ architecture Behavioral of ALUpractica is
 begin
 	PALU : PROCESS(A, B, AINVERT, BINVERT, OP)
 			variable G : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
+			--Variable para banderas.
+			variable VRES : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
 			variable P : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
 			variable MUXA,MUXB : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
 			variable C : STD_LOGIC_VECTOR(N DOWNTO 0);
@@ -65,16 +67,17 @@ begin
 				
 					--operaciones
 					WHEN "00"=>
-						RES(i)<=MUXA(i) AND MUXB(i);
+						VRES(i):=MUXA(i) AND MUXB(i);
 					WHEN "01"=>
-						RES(i)<=MUXA(i) OR MUXB(i);
+						VRES(i):=MUXA(i) OR MUXB(i);
 					WHEN "10"=>
-						RES(i)<=MUXA(i) XOR MUXB(i);
+						VRES(i):=MUXA(i) XOR MUXB(i);
 					WHEN OTHERS =>
 						
 						G(i) := (MUXA(i) AND MUXB(i));
 						P(i) := (MUXA(i) xor MUXB(i)); 
-						RES(i) <= MUXA(i) XOR MUXB(i) XOR C(i);
+						VRES(i):= MUXA(i) XOR MUXB(i) XOR C(i);
+						RES(i) <= VRES(i);
 						
 						GJ :='0';	
 						FOR j IN 0 TO i-1 LOOP --2
@@ -95,46 +98,26 @@ begin
 				END CASE;
 			END LOOP;--1
 			
-			CN <= C(N); -- Creo que CN ya lo la necesitamos
+			CN <= C(N); -- Creo que CN ya lo la necesitamos ño, solo lo dejare como para checar doblemente
 			--Banderas--
 			--Checamos si son operaciones aritmeticas
 			if(OP<="11") then
 				--Bandera carry			
 				BC <= C(N);
 				--Bandera overflow
-<<<<<<< HEAD
-				
-				if((C(N) xor C(N-1))<='1') then
-					BOV<='1';
-				else BOV<='0';
-				
-				end if;			
-=======
 				BOV<= C(N) xor C(N-1); -- Creo que es xnor
->>>>>>> origin/master
 			end if;
 			
 			--Estas banderas si se aplican a cualquier caso
 			--Bandera negative
-			BN<=RES(N-1);
+			BN<=VRES(N-1);
 			--Bandera zero
-<<<<<<< HEAD
-			VNOR :=RES(0);
-			FOR M IN 1 TO N-1 LOOP
-				VNOR := VNOR or RES(M);
-			END LOOP;
-			
-			if(VNOR<='1') then
-				BZ<='0';
-			else BZ<='1';
-			end if;
-=======
 			VNOR :='0';
 			FOR M IN 0 TO N-3 LOOP
-				VNOR := RES(M) or RES(M+2) or VNOR;
+				VNOR := VRES(M) or VRES(M+2) or VNOR;
 			END LOOP;
 			BZ <= not VNOR;
->>>>>>> origin/master
+
 		
 		END PROCESS PALU;
 END Behavioral;

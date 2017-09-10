@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/reymy/Documents/quinto/arquitortura/ALU/ALUpractica_TB.vhd";
+static const char *ng0 = "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB.vhd";
 
 
 
@@ -52,8 +52,8 @@ LAB2:    xsi_set_current_line(106, ng0);
 LAB6:    *((char **)t1) = &&LAB7;
 
 LAB1:    return;
-LAB4:    xsi_set_current_line(107, ng0);
-    t2 = (t0 + 6973);
+LAB4:    xsi_set_current_line(108, ng0);
+    t2 = (t0 + 6989);
     t5 = (t0 + 4176);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
@@ -61,7 +61,7 @@ LAB4:    xsi_set_current_line(107, ng0);
     t9 = *((char **)t8);
     memcpy(t9, t2, 2U);
     xsi_driver_first_trans_fast(t5);
-    xsi_set_current_line(108, ng0);
+    xsi_set_current_line(109, ng0);
     t2 = (t0 + 4240);
     t4 = (t2 + 56U);
     t5 = *((char **)t4);
@@ -69,16 +69,16 @@ LAB4:    xsi_set_current_line(107, ng0);
     t7 = *((char **)t6);
     *((unsigned char *)t7) = (unsigned char)2;
     xsi_driver_first_trans_fast(t2);
-    xsi_set_current_line(109, ng0);
+    xsi_set_current_line(110, ng0);
     t2 = (t0 + 4304);
     t4 = (t2 + 56U);
     t5 = *((char **)t4);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
-    *((unsigned char *)t7) = (unsigned char)3;
+    *((unsigned char *)t7) = (unsigned char)2;
     xsi_driver_first_trans_fast(t2);
-    xsi_set_current_line(110, ng0);
-    t2 = (t0 + 6975);
+    xsi_set_current_line(111, ng0);
+    t2 = (t0 + 6991);
     t5 = (t0 + 4368);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
@@ -86,8 +86,8 @@ LAB4:    xsi_set_current_line(107, ng0);
     t9 = *((char **)t8);
     memcpy(t9, t2, 4U);
     xsi_driver_first_trans_fast(t5);
-    xsi_set_current_line(111, ng0);
-    t2 = (t0 + 6979);
+    xsi_set_current_line(112, ng0);
+    t2 = (t0 + 6995);
     t5 = (t0 + 4432);
     t6 = (t5 + 56U);
     t7 = *((char **)t6);
@@ -95,7 +95,7 @@ LAB4:    xsi_set_current_line(107, ng0);
     t9 = *((char **)t8);
     memcpy(t9, t2, 4U);
     xsi_driver_first_trans_fast(t5);
-    xsi_set_current_line(112, ng0);
+    xsi_set_current_line(113, ng0);
     t3 = (100 * 1000LL);
     t2 = (t0 + 3600);
     xsi_process_wait(t2, t3);
@@ -107,7 +107,7 @@ LAB5:    goto LAB4;
 
 LAB7:    goto LAB5;
 
-LAB8:    xsi_set_current_line(117, ng0);
+LAB8:    xsi_set_current_line(118, ng0);
 
 LAB14:    *((char **)t1) = &&LAB15;
     goto LAB1;
