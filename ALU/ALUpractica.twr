@@ -1,0 +1,186 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml ALUpractica.twx ALUpractica.ncd -o ALUpractica.twr
+ALUpractica.pcf -ucf ALUPORT.ucf
+
+Design file:              ALUpractica.ncd
+Physical constraint file: ALUpractica.pcf
+Device,package,speed:     xc7a100t,csg324,C,-3 (PRODUCTION 1.10 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock OP<0>
+------------+------------+------------+------------+------------+----------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                      | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)     | Phase  |
+------------+------------+------------+------------+------------+----------------------+--------+
+A<0>        |    1.066(F)|      SLOW  |    1.110(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+A<1>        |    1.211(F)|      SLOW  |    0.623(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+A<2>        |    0.052(F)|      FAST  |    1.735(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+A<3>        |    0.782(F)|      SLOW  |    0.315(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+AINVERT     |    1.903(F)|      SLOW  |    1.079(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+B<0>        |    0.334(F)|      SLOW  |    1.375(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+B<1>        |    0.346(F)|      SLOW  |    1.393(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+B<2>        |    1.151(F)|      SLOW  |    1.208(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+B<3>        |    0.709(F)|      SLOW  |    0.386(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+BINVERT     |    1.924(F)|      SLOW  |    0.684(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+------------+------------+------------+------------+------------+----------------------+--------+
+
+Setup/Hold to clock OP<1>
+------------+------------+------------+------------+------------+----------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                      | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s)     | Phase  |
+------------+------------+------------+------------+------------+----------------------+--------+
+A<0>        |    0.814(F)|      SLOW  |    1.424(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+A<1>        |    0.959(F)|      SLOW  |    0.937(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+A<2>        |   -0.080(F)|      FAST  |    2.049(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+A<3>        |    0.530(F)|      SLOW  |    0.629(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+AINVERT     |    1.651(F)|      SLOW  |    1.393(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+B<0>        |    0.194(F)|      FAST  |    1.689(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+B<1>        |    0.191(F)|      FAST  |    1.707(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+B<2>        |    0.899(F)|      SLOW  |    1.522(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+B<3>        |    0.457(F)|      SLOW  |    0.700(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+BINVERT     |    1.672(F)|      SLOW  |    0.998(F)|      SLOW  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+------------+------------+------------+------------+------------+----------------------+--------+
+
+Clock OP<0> to Pad
+------------+-----------------+------------+-----------------+------------+----------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                      | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)     | Phase  |
+------------+-----------------+------------+-----------------+------------+----------------------+--------+
+RES<0>      |         8.415(F)|      SLOW  |         3.541(F)|      FAST  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+RES<1>      |         7.910(F)|      SLOW  |         3.280(F)|      FAST  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+RES<2>      |         8.554(F)|      SLOW  |         3.619(F)|      FAST  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+RES<3>      |         7.250(F)|      SLOW  |         2.942(F)|      FAST  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+------------+-----------------+------------+-----------------+------------+----------------------+--------+
+
+Clock OP<1> to Pad
+------------+-----------------+------------+-----------------+------------+----------------------+--------+
+            |Max (slowest) clk|  Process   |Min (fastest) clk|  Process   |                      | Clock  |
+Destination |  (edge) to PAD  |   Corner   |  (edge) to PAD  |   Corner   |Internal Clock(s)     | Phase  |
+------------+-----------------+------------+-----------------+------------+----------------------+--------+
+RES<0>      |         8.729(F)|      SLOW  |         3.673(F)|      FAST  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+RES<1>      |         8.224(F)|      SLOW  |         3.412(F)|      FAST  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+RES<2>      |         8.868(F)|      SLOW  |         3.751(F)|      FAST  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+RES<3>      |         7.564(F)|      SLOW  |         3.074(F)|      FAST  |OP[1]_PWR_4_o_Mux_21_o|   0.000|
+------------+-----------------+------------+-----------------+------------+----------------------+--------+
+
+Clock to Setup on destination clock OP<0>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+OP<0>          |         |         |    0.930|    0.930|
+OP<1>          |         |         |    1.244|    1.244|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock OP<1>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+OP<0>          |         |         |    0.678|    0.678|
+OP<1>          |         |         |    0.992|    0.992|
+---------------+---------+---------+---------+---------+
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+A<0>           |BC             |    8.413|
+A<0>           |BN             |    9.417|
+A<0>           |BOV            |    8.583|
+A<0>           |BZ             |    9.943|
+A<0>           |CN             |    8.733|
+A<1>           |BC             |    8.558|
+A<1>           |BN             |    9.562|
+A<1>           |BOV            |    8.728|
+A<1>           |BZ             |   10.088|
+A<1>           |CN             |    8.878|
+A<2>           |BC             |    7.051|
+A<2>           |BN             |    8.249|
+A<2>           |BOV            |    7.873|
+A<2>           |BZ             |    9.111|
+A<2>           |CN             |    7.371|
+A<3>           |BC             |    7.726|
+A<3>           |BN             |    9.133|
+A<3>           |BOV            |    8.251|
+A<3>           |BZ             |    9.659|
+A<3>           |CN             |    8.046|
+AINVERT        |BC             |    9.250|
+AINVERT        |BN             |   10.254|
+AINVERT        |BOV            |    9.420|
+AINVERT        |BZ             |   10.780|
+AINVERT        |CN             |    9.570|
+B<0>           |BC             |    7.681|
+B<0>           |BN             |    8.685|
+B<0>           |BOV            |    7.851|
+B<0>           |BZ             |    9.211|
+B<0>           |CN             |    8.001|
+B<1>           |BC             |    7.693|
+B<1>           |BN             |    8.697|
+B<1>           |BOV            |    7.863|
+B<1>           |BZ             |    9.223|
+B<1>           |CN             |    8.013|
+B<2>           |BC             |    7.680|
+B<2>           |BN             |    9.502|
+B<2>           |BOV            |    8.118|
+B<2>           |BZ             |   10.028|
+B<2>           |CN             |    8.000|
+B<3>           |BC             |    7.653|
+B<3>           |BN             |    9.060|
+B<3>           |BOV            |    8.178|
+B<3>           |BZ             |    9.586|
+B<3>           |CN             |    7.973|
+BINVERT        |BC             |    8.869|
+BINVERT        |BN             |   10.275|
+BINVERT        |BOV            |    9.184|
+BINVERT        |BZ             |   10.801|
+BINVERT        |CN             |    9.189|
+OP<0>          |BC             |    8.277|
+OP<0>          |BN             |    9.281|
+OP<0>          |BOV            |    8.447|
+OP<0>          |BZ             |    9.807|
+OP<0>          |CN             |    8.597|
+OP<1>          |BC             |    8.591|
+OP<1>          |BN             |    9.595|
+OP<1>          |BOV            |    8.761|
+OP<1>          |BZ             |   10.121|
+OP<1>          |CN             |    8.911|
+---------------+---------------+---------+
+
+
+Analysis completed Mon Sep 11 13:11:12 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 675 MB
+
+
+

@@ -31,7 +31,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity ALUpractica is
 	 GENERIC(N: integer:=4);
-    Port ( CN : out  STD_LOGIC;
+    Port (
 		BINVERT : in  STD_LOGIC;
 		AINVERT : in  STD_LOGIC;
 		OP : in  STD_LOGIC_VECTOR(1 downto 0);
@@ -52,7 +52,7 @@ begin
 			variable P : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
 			variable MUXA,MUXB : STD_LOGIC_VECTOR(N-1 DOWNTO 0);
 			variable C : STD_LOGIC_VECTOR(N DOWNTO 0);
-			variable PI,PK,GJ,VNOR : STD_LOGIC;
+			variable PI,PK,GJ,VNOR,VAND: STD_LOGIC;
 		BEGIN
 			C:= (OTHERS => '0'); --OTHERS nos indica que el valor es cero para todos sus bits
 			P:= (OTHERS => '0');
@@ -76,8 +76,7 @@ begin
 						
 						G(i) := (MUXA(i) AND MUXB(i));
 						P(i) := (MUXA(i) xor MUXB(i)); 
-						VRES(i):= MUXA(i) XOR MUXB(i) XOR C(i);
-						RES(i) <= VRES(i);
+						VRES(i):= MUXA(i) XOR MUXB(i) XOR C(i);						
 						
 						GJ :='0';	
 						FOR j IN 0 TO i-1 LOOP --2
@@ -88,22 +87,24 @@ begin
 							GJ := GJ or (G(j) and PK);
 						END LOOP;--2
 						
+						VAND:=C(0);--para la operacion and del carry
 						PI :='1';
 						FOR i2 IN 0 TO i LOOP --4
 							PI := PI AND P(i2);
 						END LOOP;--4
-				
-						C(i+1) := G(i) or GJ or (C(0) AND PI);
+						VAND:=VAND and PI;			
+						C(i+1) := G(i) or GJ or VAND;
 										
 				END CASE;
+					RES(i) <= VRES(i);
 			END LOOP;--1
 			
-			CN <= C(N); -- Creo que CN ya lo la necesitamos ño, solo lo dejare como para checar doblemente
+			BN <= C(N); -- Creo que CN ya lo la necesitamos ño, solo lo dejare como para checar doblemente
 			--Banderas--
 			--Checamos si son operaciones aritmeticas
 			if(OP<="11") then
 				--Bandera carry			
-				BC <= C(N);
+				--BC <= C(N);
 				--Bandera overflow
 				BOV<= C(N) xor C(N-1); -- Creo que es xnor
 			end if;
@@ -113,8 +114,8 @@ begin
 			BN<=VRES(N-1);
 			--Bandera zero
 			VNOR :='0';
-			FOR M IN 0 TO N-3 LOOP
-				VNOR := VRES(M) or VRES(M+2) or VNOR;
+			FOR M IN 0 TO N-1 LOOP
+				VNOR := VNOR or VRES(M);
 			END LOOP;
 			BZ <= not VNOR;
 

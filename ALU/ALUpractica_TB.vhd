@@ -64,7 +64,6 @@ ARCHITECTURE behavior OF ALUpractica_TB IS
    signal B : std_logic_vector(3 downto 0) := (others => '0');
 
  	--Outputs
-   signal CN : std_logic;
    signal RES : std_logic_vector(3 downto 0);
 	signal BZ,BC,BN, BOV: STD_LOGIC;
    -- No clocks detected in port list. Replace <clock> below with 
@@ -110,7 +109,7 @@ BEGIN
 		BINVERT<='0';
 		A<="0101";
 		B<="0111";
-		wait for 100 ns;
+
       --wait for <clock>_period*10;
 
       -- insert stimulus here 

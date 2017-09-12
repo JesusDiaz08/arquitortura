@@ -1,19 +1,19 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB_isim_beh.exe" -prj "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB_beh.prj" "work.ALUpractica_TB" 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/testing_isim_beh.exe" -prj "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/testing_beh.prj" "work.testing" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica.vhd" into library work
-Parsing VHDL file "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB.vhd" into library work
+Parsing VHDL file "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUfinal.vhd" into library work
+Parsing VHDL file "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/testing.vhd" into library work
 Starting static elaboration
-WARNING:HDLCompiler:746 - "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica.vhd" Line 83: Range is empty (null range)
+WARNING:HDLCompiler:746 - "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUfinal.vhd" Line 82: Range is empty (null range)
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
-Compiling architecture behavioral of entity ALUpractica [\ALUpractica(4)\]
-Compiling architecture behavior of entity alupractica_tb
+Compiling architecture behavioral of entity ALUfinal [\ALUfinal(4)\]
+Compiling architecture behavior of entity testing
 Time Resolution for simulation is 1ps.
 Compiled 5 VHDL Units
-Built simulation executable C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/ALUpractica_TB_isim_beh.exe
-Fuse Memory Usage: 30108 KB
-Fuse CPU Usage: 749 ms
+Built simulation executable C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU/testing_isim_beh.exe
+Fuse Memory Usage: 29308 KB
+Fuse CPU Usage: 796 ms
