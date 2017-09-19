@@ -1,2 +1,0 @@
-vhdl isim_temp "../practica1.vhd"
-vhdl isim_temp "TB.vhd"

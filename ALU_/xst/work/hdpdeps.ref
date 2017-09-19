@@ -1,0 +1,7 @@
+V3 3
+FL C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/ALU.vhd 2017/09/12.21:06:57 P.20131013
+EN work/ALU 1505271706 \
+      FL C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/ALU.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/ALU/Behavioral 1505271707 \
+      FL C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/ALU.vhd EN work/ALU 1505271706

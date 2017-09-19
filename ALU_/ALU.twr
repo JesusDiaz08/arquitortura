@@ -1,0 +1,135 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml ALU.twx ALU.ncd -o ALU.twr ALU.pcf -ucf PORTS.ucf
+
+Design file:              ALU.ncd
+Physical constraint file: ALU.pcf
+Device,package,speed:     xc7a100t,csg324,C,-3 (PRODUCTION 1.10 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+A<0>           |BC             |    8.414|
+A<0>           |BN             |    8.746|
+A<0>           |BOV            |    8.801|
+A<0>           |BZ             |    8.915|
+A<0>           |RES<0>         |    7.511|
+A<0>           |RES<1>         |    7.621|
+A<0>           |RES<2>         |    8.609|
+A<0>           |RES<3>         |    8.239|
+A<1>           |BC             |    8.126|
+A<1>           |BN             |    8.458|
+A<1>           |BOV            |    8.513|
+A<1>           |BZ             |    8.627|
+A<1>           |RES<1>         |    7.435|
+A<1>           |RES<2>         |    8.321|
+A<1>           |RES<3>         |    7.951|
+A<2>           |BC             |    7.261|
+A<2>           |BN             |    7.593|
+A<2>           |BOV            |    7.648|
+A<2>           |BZ             |    7.908|
+A<2>           |RES<2>         |    7.637|
+A<2>           |RES<3>         |    7.086|
+A<3>           |BC             |    6.767|
+A<3>           |BN             |    7.437|
+A<3>           |BOV            |    7.440|
+A<3>           |BZ             |    7.606|
+A<3>           |RES<3>         |    6.930|
+AINVERT        |BC             |    8.716|
+AINVERT        |BN             |    9.048|
+AINVERT        |BOV            |    9.103|
+AINVERT        |BZ             |    9.217|
+AINVERT        |RES<0>         |    8.079|
+AINVERT        |RES<1>         |    7.923|
+AINVERT        |RES<2>         |    8.911|
+AINVERT        |RES<3>         |    8.541|
+B<0>           |BC             |    8.448|
+B<0>           |BN             |    8.780|
+B<0>           |BOV            |    8.835|
+B<0>           |BZ             |    8.949|
+B<0>           |RES<0>         |    7.229|
+B<0>           |RES<1>         |    7.655|
+B<0>           |RES<2>         |    8.643|
+B<0>           |RES<3>         |    8.273|
+B<1>           |BC             |    7.863|
+B<1>           |BN             |    8.195|
+B<1>           |BOV            |    8.250|
+B<1>           |BZ             |    8.551|
+B<1>           |RES<1>         |    7.717|
+B<1>           |RES<2>         |    8.058|
+B<1>           |RES<3>         |    7.688|
+B<2>           |BC             |    8.516|
+B<2>           |BN             |    8.848|
+B<2>           |BOV            |    8.903|
+B<2>           |BZ             |    9.017|
+B<2>           |RES<2>         |    8.480|
+B<2>           |RES<3>         |    8.341|
+B<3>           |BC             |    7.296|
+B<3>           |BN             |    7.614|
+B<3>           |BOV            |    7.466|
+B<3>           |BZ             |    7.783|
+B<3>           |RES<3>         |    7.107|
+BINVERT        |BC             |    9.901|
+BINVERT        |BN             |   10.233|
+BINVERT        |BOV            |   10.288|
+BINVERT        |BZ             |   10.402|
+BINVERT        |RES<0>         |    8.988|
+BINVERT        |RES<1>         |    9.180|
+BINVERT        |RES<2>         |    9.865|
+BINVERT        |RES<3>         |    9.726|
+OP<0>          |BC             |    8.569|
+OP<0>          |BN             |    8.901|
+OP<0>          |BOV            |    8.956|
+OP<0>          |BZ             |    9.070|
+OP<0>          |RES<0>         |    7.564|
+OP<0>          |RES<1>         |    7.776|
+OP<0>          |RES<2>         |    8.764|
+OP<0>          |RES<3>         |    8.394|
+OP<1>          |BC             |    8.994|
+OP<1>          |BN             |    9.326|
+OP<1>          |BOV            |    9.381|
+OP<1>          |BZ             |    9.495|
+OP<1>          |RES<0>         |    7.699|
+OP<1>          |RES<1>         |    8.201|
+OP<1>          |RES<2>         |    9.189|
+OP<1>          |RES<3>         |    8.819|
+---------------+---------------+---------+
+
+
+Analysis completed Wed Sep 13 15:06:48 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 677 MB
+
+
+

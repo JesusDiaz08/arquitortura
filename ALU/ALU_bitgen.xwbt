@@ -1,8 +1,0 @@
-INTSTYLE=ise
-INFILE=C:\Users\ANDRES\Documents\GitHub\arquitortura\ALU\ALU.ncd
-OUTFILE=C:\Users\ANDRES\Documents\GitHub\arquitortura\ALU\ALU.bit
-FAMILY=Artix7
-PART=xc7a100t-3csg324
-WORKINGDIR=C:\Users\ANDRES\Documents\GitHub\arquitortura\ALU
-LICENSE=WebPack
-USER_INFO=__0_0_0

@@ -1,0 +1,19 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "secureip" -o "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/ALU_TB_isim_beh.exe" -prj "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/ALU_TB_beh.prj" "work.ALU_TB" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/ALU.vhd" into library work
+Parsing VHDL file "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/ALU_TB.vhd" into library work
+Starting static elaboration
+WARNING:HDLCompiler:746 - "C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/ALU.vhd" Line 83: Range is empty (null range)
+Completed static elaboration
+Compiling package standard
+Compiling package std_logic_1164
+Compiling architecture behavioral of entity ALU [\ALU(4)\]
+Compiling architecture behavior of entity alu_tb
+Time Resolution for simulation is 1ps.
+Compiled 5 VHDL Units
+Built simulation executable C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/ALU_TB_isim_beh.exe
+Fuse Memory Usage: 29940 KB
+Fuse CPU Usage: 733 ms
