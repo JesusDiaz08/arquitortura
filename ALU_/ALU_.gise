@@ -115,7 +115,7 @@
       <outfile xil_pn:name="ALU.vhd"/>
       <outfile xil_pn:name="ALU_TB.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1505332291" xil_pn:in_ck="-5735988151310217575" xil_pn:name="TRAN_MSimulateBehavioralModel" xil_pn:prop_ck="6067088567954539090" xil_pn:start_ts="1505332285">
+    <transform xil_pn:end_ts="1506122738" xil_pn:in_ck="-5735988151310217575" xil_pn:name="TRAN_MSimulateBehavioralModel" xil_pn:prop_ck="6067088567954539090" xil_pn:start_ts="1506122735">
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
