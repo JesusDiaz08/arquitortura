@@ -1,10 +1,12 @@
-library IEEE;
+	library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+USE ieee.numeric_std.ALL; 
 
 
 entity programa is
     Port ( A : in  STD_LOGIC_VECTOR (15 downto 0);
-           D : in  STD_LOGIC_VECTOR (24 downto 0));
+			  CLK, CLR : IN STD_LOGIC;
+           Q : out  STD_LOGIC_VECTOR (24 downto 0));
 end programa;
 
 architecture memoria of programa is
@@ -72,5 +74,15 @@ constant mem_prog: memoria :=(
 		others => (others => '0')	--others para llenar de ceros las localidades y su tamaño.
 );
 begin
+	process(CLK, CLR)
+	variable prueba :STD_LOGIC_VECTOR (24 downto 0);
+	begin
+	IF(CLR = '1')THEN
+		Q <= (OTHERS => '0');
+	ELSIF( CLK'EVENT AND CLK = '0' )THEN
+		-- casteamos la entrada a un entero para poder acceder al arreglo de memoria
+		Q <= mem_prog(to_integer(unsigned(A))); -- La salida de 25 bits
+	END IF;
+	end process;
 end memoria;
 
