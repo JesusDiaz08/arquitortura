@@ -31,10 +31,15 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity programa is
     Port (
-		A : in  STD_LOGIC_VECTOR (15 downto 0);
-        D : in  STD_LOGIC_VECTOR (24 downto 0);
+			A : in  STD_LOGIC_VECTOR (15 downto 0);
+         D : in  STD_LOGIC_VECTOR (24 downto 0);
 		);
 end programa;
+
+
+
+architecture a_programa of programa is
+
 constant opcode_tipoR: 	std_logic_vector(4 downto 0):="00000";
 constant opcode_LI: 	std_logic_vector(4 downto 0):="00001";
 constant opcode_LWI: 	std_logic_vector(4 downto 0):="00010";
@@ -50,19 +55,18 @@ constant R1:			std_logic_vector(3 downto 0):="00001";
 constant SU:			std_logic_vector(3 downto 0):="00000";
 constant NUM1: 			std_logic_vector(15 downto 0):= X"00001"; --hexadecimal
 
-
-
-architecture a_programa of programa is
-type memoria is array (o to 2+16-1) of std_logic_vector(24 downto 0);
-constant mem_prog: memoria :=(
-		opcode_LI&R0&NUM1, 						--LI RO #1
-		opcode_LI&R1&X"0009",				    --LI R1 #7
-		opcode_tipoR&R1&R1&R0&SU&funcode_ADD, 	--ADD R1,R1,R0
-		opcode_SWI&R1&X"0005", 					--SWI R1,5
-		opcode_B&SU&X"0002", 					--B ciclo
-		others=> (others => '0');	--others the localidades y su tamanio.	
-);
+--
+--type memoria is array(0 to 2**16-1) of std_logic_vector(24 downto 0);
+--constant mem_prog: memoria :=(
+--		opcode_LI&R0&NUM1, 						--LI RO #1
+--		opcode_LI&R1&X"0009",				    --LI R1 #7
+--		opcode_tipoR&R1&R1&R0&SU&funcode_ADD, 	--ADD R1,R1,R0
+--		opcode_SWI&R1&X"0005", 					--SWI R1,5
+--		opcode_B&SU&X"0002", 					--B ciclo
+--		others=> (others => '0');	--others the localidades y su tamanio.	
+--);
 begin
+end a_programa;
 
 end a_programa;
 
