@@ -42,19 +42,19 @@ constant funcode_SUB:   std_logic_vector(3 downto 0):="0001";
 -------REGISTROS------
 constant R0: 	std_logic_vector(3 downto 0):="0000";
 constant R1:	std_logic_vector(3 downto 0):="0001";
-constant R2: 	std_logic_vector(4 downto 0):="0010";
-constant R3: 	std_logic_vector(4 downto 0):="0011";
-constant R4: 	std_logic_vector(4 downto 0):="0100";
-constant R5: 	std_logic_vector(4 downto 0):="0101";
-constant R6: 	std_logic_vector(4 downto 0):="0110";
-constant R7: 	std_logic_vector(4 downto 0):="0111";
-constant R8: 	std_logic_vector(4 downto 0):="1000";
-constant R9: 	std_logic_vector(4 downto 0):="1001";
-constant R10: 	std_logic_vector(4 downto 0):="1010";
-constant R11: 	std_logic_vector(4 downto 0):="1011";
-constant R12: 	std_logic_vector(4 downto 0):="1100";
-constant R13: 	std_logic_vector(4 downto 0):="1101";
-constant R14: 	std_logic_vector(4 downto 0):="1110";
+constant R2: 	std_logic_vector(3 downto 0):="0010";
+constant R3: 	std_logic_vector(3 downto 0):="0011";
+constant R4: 	std_logic_vector(3 downto 0):="0100";
+constant R5: 	std_logic_vector(3 downto 0):="0101";
+constant R6: 	std_logic_vector(3 downto 0):="0110";
+constant R7: 	std_logic_vector(3 downto 0):="0111";
+constant R8: 	std_logic_vector(3 downto 0):="1000";
+constant R9: 	std_logic_vector(3 downto 0):="1001";
+constant R10: 	std_logic_vector(3 downto 0):="1010";
+constant R11: 	std_logic_vector(3 downto 0):="1011";
+constant R12: 	std_logic_vector(3 downto 0):="1100";
+constant R13: 	std_logic_vector(3 downto 0):="1101";
+constant R14: 	std_logic_vector(3 downto 0):="1110";
 
 ----ALGUNAS CONSTANTES DE USO----
 constant SU:			std_logic_vector(3 downto 0):="0000";

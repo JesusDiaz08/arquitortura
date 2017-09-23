@@ -26,8 +26,14 @@
 -- simulation model.
 --------------------------------------------------------------------------------
 LIBRARY ieee;
+LIBRARY STD;
+USE STD.TEXTIO.ALL;
+USE ieee.std_logic_TEXTIO.ALL;
+
 USE ieee.std_logic_1164.ALL;
- 
+USE ieee.std_logic_UNSIGNED.ALL;
+USE ieee.std_logic_ARITH.ALL;
+
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
@@ -50,8 +56,6 @@ ARCHITECTURE behavior OF Practica2_TB IS
    --Inputs
    signal A : std_logic_vector(15 downto 0) := (others => '0');
    signal D : std_logic_vector(24 downto 0) := (others => '0');
-   -- No clocks detected in port list. Replace <clock> below with 
-   -- appropriate port name 
  
    --constant <clock>_period : time := 10 ns;
  
@@ -62,28 +66,79 @@ BEGIN
           A => A,
           D => D
         );
-
-   -- Clock process definitions
---   <clock>_process :process
+		  
+	-- Clock process definitions
+--   CLK_process :process
 --   begin
---		<clock> <= '0';
---		wait for <clock>_period/2;
---		<clock> <= '1';
---		wait for <clock>_period/2;
+--		CLK <= '0';
+--		wait for CLK_period/2;
+--		CLK <= '1';
+--		wait for CLK_period/2;
 --   end process;
--- 
+ 
 
    -- Stimulus process
    stim_proc: process
-   begin		
-      -- hold reset state for 100 ns.
-      wait for 100 ns;	
+		file ARCH_RES : TEXT;																					
+		variable LINEA_RES : line;
+		
+		file ARCH_A : TEXT;
+		variable LINEA_A : line;
+		VARIABLE VAR_A : STD_LOGIC_VECTOR(1 DOWNTO 0);
+		VARIABLE VAR_D : STD_LOGIC_VECTOR(7 DOWNTO 0);
+		VARIABLE CADENA : STRING(1 TO 7);
+		
+   begin	
+	
+		file_open(ARCH_A, "DIRECCIONES.TXT", READ_MODE); 	
+		file_open(ARCH_RES, "RESULTADO.TXT", WRITE_MODE); 	
 
---      wait for <clock>_period*10;
+		CADENA := "INSTRUC";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);	--ESCRIBE LA CADENA 
+		CADENA := "  SGNFD";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);	--ESCRIBE LA CADENA 
+		CADENA := "  DIREC";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);	--ESCRIBE LA CADENA
+		CADENA := "24...20";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);	--ESCRIBE LA CADENA
+		CADENA := "19...16";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);	--ESCRIBE LA CADENA 
+		CADENA := "15...12";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);	--ESCRIBE LA CADENA 
+		CADENA := "11...08";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);	--ESCRIBE LA CADENA
+		CADENA := "07...04";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);	--ESCRIBE LA CADENA 
+		CADENA := "03...00";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);	--ESCRIBE LA CADENA 
+				
+		writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
 
-      -- insert stimulus here 
+--		WAIT FOR 100 NS;
+--		FOR I IN 0 TO 14 LOOP
+--			readline(ARCH_VEC,LINEA_VEC); -- lee una linea completa
+--
+--			read(LINEA_VEC, VAR_OPER);
+--			OPER <= VAR_OPER;
+--			Hread(LINEA_VEC, VAR_D);--hexadecimal read
+--			D <= VAR_D;		
+--			read(LINEA_VEC, VAR_CLR);  
+--			CLR <= VAR_CLR;
+--			
+--			WAIT UNTIL RISING_EDGE(CLK);	--ESPERO AL FLANCO DE SUBIDA 
+--
+--			VAR_Q := Q;	
+--			write(LINEA_RES, VAR_OPER, right, 5);	--ESCRIBE EL CAMPO OPER
+--			Hwrite(LINEA_RES, VAR_D, 	right, 5);	--ESCRIBE EL CAMPO D
+--			write(LINEA_RES, VAR_CLR, 	right, 5);	--ESCRIBE EL CAMPO CLR
+--			Hwrite(LINEA_RES, VAR_Q, 	right, 5);	--ESCRIBE EL CAMPO Q
+--
+--			writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
+--			
+--		end loop;
 
+		file_close(ARCH_VEC);  -- cierra el archivo
+		file_close(ARCH_RES);  -- cierra el archivo
       wait;
    end process;
-
 END;
