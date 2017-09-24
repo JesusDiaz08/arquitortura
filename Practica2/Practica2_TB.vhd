@@ -94,9 +94,11 @@ BEGIN
         VARIABLE VAR_Q : STD_LOGIC_VECTOR(24 DOWNTO 0);
 		  --
 		  VARIABLE SEG1: STD_LOGIC_VECTOR(4 DOWNTO 0);
-		  VARIABLE SEG2,SEG3,SEG4,SEG5,SEG6: STD_LOGIC_VECTOR(3 DOWNTO 0);
+		  VARIABLE SEG2,SEG3,SEG4,SEG5,SEG6: STD_LOGIC_VECTOR(3 DOWNTO 0); --SEGMENTOS DEL FORMATO
 		  --
         VARIABLE CADENA : STRING(1 TO 7);
+		  VARIABLE ESPACIO : STRING(1 TO 2);
+		  
    begin
 		  file_open(ARCH_A, "DIRECCIONES.TXT", READ_MODE);
         file_open(ARCH_RES, "bleh.TXT", WRITE_MODE);
@@ -107,17 +109,17 @@ BEGIN
 --        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
 --        CADENA := "  DIREC";
 --        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA
-        CADENA := "24.20";
+        CADENA := "24...20";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA
-        CADENA := "19.16";
+        CADENA := "19...16";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
-        CADENA := "15.12";
+        CADENA := "15...12";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
-        CADENA := "11.8";
+        CADENA := "11...08";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA
-        CADENA := "7.4";
+        CADENA := "07...04";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
-        CADENA := "3.0";
+        CADENA := "03...00";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
                 
         writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
@@ -140,11 +142,17 @@ BEGIN
 				SEG5:= Q(7)&Q(6)&Q(5)&Q(4);
 				SEG6:= Q(3)&Q(2)&Q(1)&Q(0);				
 				
+				write(LINEA_RES, ESPACIO, 	right, 1);	--ESCRIBE UN ESPACIO	
 				write(LINEA_RES, SEG1, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, ESPACIO, 	right, 2);	--ESCRIBE UN ESPACIO			
 				write(LINEA_RES, SEG2, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, ESPACIO, 	right, 3);	--ESCRIBE UN ESPACIO	
 				write(LINEA_RES, SEG3, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, ESPACIO, 	right, 3);	--ESCRIBE UN ESPACIO	
 				write(LINEA_RES, SEG4, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, ESPACIO, 	right, 3);	--ESCRIBE UN ESPACIO	
 				write(LINEA_RES, SEG5, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, ESPACIO, 	right, 3);	--ESCRIBE UN ESPACIO	
 				write(LINEA_RES, SEG6, 	right, 5);	--ESCRIBE EL CAMPO Q		
 				--				
 				--write(LINEA_RES, VAR_Q, 	right, 5);	--ESCRIBE EL CAMPO Q
