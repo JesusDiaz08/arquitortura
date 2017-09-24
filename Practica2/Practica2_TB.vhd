@@ -91,29 +91,33 @@ BEGIN
         file ARCH_A : TEXT;
         variable LINEA_A : line;
         VARIABLE VAR_A : STD_LOGIC_VECTOR(15 DOWNTO 0);
-        VARIABLE VAR_D : STD_LOGIC_VECTOR(7 DOWNTO 0);
+        VARIABLE VAR_Q : STD_LOGIC_VECTOR(24 DOWNTO 0);
+		  --
+		  VARIABLE SEG1: STD_LOGIC_VECTOR(4 DOWNTO 0);
+		  VARIABLE SEG2,SEG3,SEG4,SEG5,SEG6: STD_LOGIC_VECTOR(3 DOWNTO 0);
+		  --
         VARIABLE CADENA : STRING(1 TO 7);
    begin
-	file_open(ARCH_A, "DIRECCIONES.TXT", READ_MODE);
+		  file_open(ARCH_A, "DIRECCIONES.TXT", READ_MODE);
         file_open(ARCH_RES, "bleh.TXT", WRITE_MODE);
 
-        CADENA := "INSTRUC";
-        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
-        CADENA := "  SGNFD";
-        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
-        CADENA := "  DIREC";
+--        CADENA := "INSTRUC";
+--        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
+--        CADENA := "  SGNFD";
+--        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
+--        CADENA := "  DIREC";
+--        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA
+        CADENA := "24.20";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA
-        CADENA := "24...20";
+        CADENA := "19.16";
+        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
+        CADENA := "15.12";
+        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
+        CADENA := "11.8";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA
-        CADENA := "19...16";
+        CADENA := "7.4";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
-        CADENA := "15...12";
-        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
-        CADENA := "11...08";
-        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA
-        CADENA := "07...04";
-        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
-        CADENA := "03...00";
+        CADENA := "3.0";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA 
                 
         writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
@@ -126,8 +130,30 @@ BEGIN
 				CLR <= '0'; -- Desactivamos el clear
             A <= VAR_A; -- lo asignamos a nuestro valor de entrada
 				WAIT UNTIL RISING_EDGE(CLK);
-        end loop;
-		  
+        	
+				--VAR_Q := Q;
+				--
+				SEG1:= Q(24)&Q(23)&Q(22)&Q(21)&Q(20);
+				SEG2:= Q(19)&Q(18)&Q(17)&Q(16);
+				SEG3:= Q(15)&Q(14)&Q(13)&Q(12);
+				SEG4:= Q(11)&Q(10)&Q(9)&Q(8);
+				SEG5:= Q(7)&Q(6)&Q(5)&Q(4);
+				SEG6:= Q(3)&Q(2)&Q(1)&Q(0);				
+				
+				write(LINEA_RES, SEG1, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, SEG2, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, SEG3, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, SEG4, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, SEG5, 	right, 5);	--ESCRIBE EL CAMPO Q
+				write(LINEA_RES, SEG6, 	right, 5);	--ESCRIBE EL CAMPO Q		
+				--				
+				--write(LINEA_RES, VAR_Q, 	right, 5);	--ESCRIBE EL CAMPO Q
+				
+				writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
+					  
+		  end loop;
+	 		  
+		  file_close(ARCH_A);
 		  file_close(ARCH_RES);  -- cierra el archivo
 		  wait;
       -- hold reset state for 100 ns.
