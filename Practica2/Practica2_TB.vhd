@@ -45,8 +45,6 @@ ARCHITECTURE behavior OF Practica2_TB IS
     COMPONENT programa
     PORT(
          A : IN  std_logic_vector(15 downto 0);
-         CLK : IN  std_logic;
-         CLR : IN  std_logic;
          Q : OUT  std_logic_vector(24 downto 0)
         );
     END COMPONENT;
@@ -54,8 +52,6 @@ ARCHITECTURE behavior OF Practica2_TB IS
 
    --Inputs
    signal A : std_logic_vector(15 downto 0) := (others => '0');
-   signal CLK : std_logic := '0';
-   signal CLR : std_logic := '0';
 
  	--Outputs
    signal Q : std_logic_vector(24 downto 0);
@@ -68,19 +64,17 @@ BEGIN
 	-- Instantiate the Unit Under Test (UUT)
    uut: programa PORT MAP (
           A => A,
-          CLK => CLK,
-          CLR => CLR,
           Q => Q
         );
 
    -- Clock process definitions
-   CLK_process :process
-   begin
-		CLK <= '0';
-		wait for CLK_period/2;
-		CLK <= '1';
-		wait for CLK_period/2;
-   end process;
+--   CLK_process :process
+--   begin
+--		CLK <= '0';
+--		wait for CLK_period/2;
+--		CLK <= '1';
+--		wait for CLK_period/2;
+--   end process;
  
 
    -- Stimulus process
@@ -129,10 +123,8 @@ BEGIN
         for i in 0 to 4 loop
             readline(ARCH_A, LINEA_A);
 				Hread(LINEA_A, VAR_A); -- leemos un valor que esta en hexadecimal
-				CLR <= '0'; -- Desactivamos el clear
             A <= VAR_A; -- lo asignamos a nuestro valor de entrada
-				WAIT UNTIL RISING_EDGE(CLK);
-        	
+				wait for 100 ns;
 				--VAR_Q := Q;
 				--
 				SEG1:= Q(24)&Q(23)&Q(22)&Q(21)&Q(20);
@@ -143,7 +135,7 @@ BEGIN
 				SEG6:= Q(3)&Q(2)&Q(1)&Q(0);				
 				
 				--write(LINEA_RES, ESPACIO, 	right, 0);	--ESCRIBE UN ESPACIO
-				hwrite(LINEA_RES, A,		right, 5);
+				hwrite(LINEA_RES, VAR_A, right, 5);
 				write(LINEA_RES, ESPACIO, 	right, 5);	--ESCRIBE UN ESPACIO
 				write(LINEA_RES, SEG1, 	right, 5);	--ESCRIBE EL CAMPO Q
 				write(LINEA_RES, ESPACIO, 	right, 2);	--ESCRIBE UN ESPACIO			
