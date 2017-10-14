@@ -49,7 +49,7 @@ ARCHITECTURE behavior OF TB_MemoriaD IS
          ADR_W : IN  std_logic_vector(3 downto 0);
          ADR_R : IN  std_logic_vector(3 downto 0);
          WREN : IN  std_logic;
-         REN : IN  std_logic;
+         --REN : IN  std_logic;
          CLK : IN  std_logic
         );
     END COMPONENT;
@@ -60,7 +60,7 @@ ARCHITECTURE behavior OF TB_MemoriaD IS
    signal ADR_W : std_logic_vector(3 downto 0) := (others => '0');
    signal ADR_R : std_logic_vector(3 downto 0) := (others => '0');
    signal WREN : std_logic := '0';
-   signal REN : std_logic := '0';
+   --signal REN : std_logic := '0';
    signal CLK : std_logic := '0';
 
  	--Outputs
@@ -78,7 +78,7 @@ BEGIN
           ADR_W => ADR_W,
           ADR_R => ADR_R,
           WREN => WREN,
-          REN => REN,
+          --REN => REN,
           CLK => CLK
         );
 
@@ -94,64 +94,54 @@ BEGIN
 
    -- Stimulus process
    stim_proc: process
-	file ARCH_RES : TEXT;
-	variable LINEA_RES : line;
+	--Archivos y variables de salida
+	file ARCH_RES         : TEXT;
+	variable LINEA_RES    : line;
+	VARIABLE VAR_DOUT : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	--Archivos y variables de entrada
 	file ARCH_DATOS: TEXT;
-   variable LINEA_DATOS : line;
+	variable LINEA     : line;
+   variable VAR_DIN   : STD_LOGIC_VECTOR(7 DOWNTO 0);
+	variable VAR_ADR_W : STD_LOGIC_VECTOR(3 DOWNTO 0);
+	variable VAR_WREN  : STD_LOGIC;
+	variable VAR_ADR_R : STD_LOGIC_VECTOR(3 DOWNTO 0);
 		
-      VARIABLE VAR_DIN : STD_LOGIC_VECTOR(15 DOWNTO 0);
-      VARIABLE VAR_ADR_DOUT : STD_LOGIC_VECTOR(24 DOWNTO 0);
 		  --
-		VARIABLE CADENA : STRING(1 TO 7);
-		VARIABLE ESPACIO : STRING(1 TO 2);
+		VARIABLE CADENA : STRING(1 TO 5);
+		--VARIABLE ESPACIO : STRING(1 TO 2);
 		  --
 		
    begin		
-file_open(ARCH_DATOS, "DATOS.TXT", READ_MODE);
-        file_open(ARCH_RES, "RESULTADOS.TXT", WRITE_MODE);
+	file_open(ARCH_DATOS, "DATOS.TXT", READ_MODE);
+   file_open(ARCH_RES, "RESULTADOS.TXT", WRITE_MODE);
 
         CADENA := "LEIDO";
-        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);   --ESCRIBE LA CADENA
-
+        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);  
         writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
         
         wait for 100 ns;
 
-        for i in 0 to 4 loop
+        for i in 0 to 1 loop
 		  
---            readline(ARCH_A, LINEA_A);
---				Hread(LINEA_A, VAR_A); -- leemos un valor que esta en hexadecimal
---            A <= VAR_A; -- lo asignamos a nuestro valor de entrada
---				wait for 100 ns;
---				--VAR_Q := Q;
---				--
---				SEG1:= Q(24)&Q(23)&Q(22)&Q(21)&Q(20);
---				SEG2:= Q(19)&Q(18)&Q(17)&Q(16);
---				SEG3:= Q(15)&Q(14)&Q(13)&Q(12);
---				SEG4:= Q(11)&Q(10)&Q(9)&Q(8);
---				SEG5:= Q(7)&Q(6)&Q(5)&Q(4);
---				SEG6:= Q(3)&Q(2)&Q(1)&Q(0);				
---				
---				--write(LINEA_RES, ESPACIO, 	right, 0);	--ESCRIBE UN ESPACIO
---				hwrite(LINEA_RES, VAR_A, right, 5);
---				write(LINEA_RES, ESPACIO, 	right, 5);	--ESCRIBE UN ESPACIO
---				write(LINEA_RES, SEG1, 	right, 5);	--ESCRIBE EL CAMPO Q
---				write(LINEA_RES, ESPACIO, 	right, 2);	--ESCRIBE UN ESPACIO			
---				write(LINEA_RES, SEG2, 	right, 5);	--ESCRIBE EL CAMPO Q
---				write(LINEA_RES, ESPACIO, 	right, 3);	--ESCRIBE UN ESPACIO	
---				write(LINEA_RES, SEG3, 	right, 5);	--ESCRIBE EL CAMPO Q
---				write(LINEA_RES, ESPACIO, 	right, 3);	--ESCRIBE UN ESPACIO	
---				write(LINEA_RES, SEG4, 	right, 5);	--ESCRIBE EL CAMPO Q
---				write(LINEA_RES, ESPACIO, 	right, 3);	--ESCRIBE UN ESPACIO	
---				write(LINEA_RES, SEG5, 	right, 5);	--ESCRIBE EL CAMPO Q
---				write(LINEA_RES, ESPACIO, 	right, 3);	--ESCRIBE UN ESPACIO	
---				write(LINEA_RES, SEG6, 	right, 5);	--ESCRIBE EL CAMPO Q
---		
---				--				
---				--write(LINEA_RES, VAR_Q, 	right, 5);	--ESCRIBE EL CAMPO Q
---				
---				writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
---					  
+				readline(ARCH_DATOS, LINEA);
+
+				read(LINEA, VAR_DIN); --Leemos el din
+				DIN<= VAR_DIN;
+				Hread(LINEA, VAR_ADR_W); -- Leemos la direccion a donde se escribira (en hexadecimal)
+				ADR_W<= VAR_ADR_W;
+				read(LINEA, VAR_WREN); --Leemos si se escribe o lee
+				WREN<= VAR_WREN;
+				Hread(LINEA, VAR_ADR_R); -- Leemos la direccion de donde se leera el dato(en hexadecimal)
+				ADR_R<=VAR_ADR_R;
+				
+				wait until rising_edge(CLK);
+				wait for 100 ns;
+
+				VAR_DOUT := DOUT;
+		
+			   write(LINEA_RES, VAR_DOUT,right, 5);	--ESCRIBE EL CAMPO Q				
+				writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
+				  
 		  end loop;
 	 		  
 		  file_close(ARCH_DATOS);

@@ -8,7 +8,7 @@ entity MemoriaD is
            ADR_W : in  STD_LOGIC_VECTOR (3 downto 0);
 			  ADR_R : in  STD_LOGIC_VECTOR (3 downto 0);
            WREN  : in  STD_LOGIC; --WRITE ENABLE
-			  REN  : in  STD_LOGIC;	 --READ ENABLE
+			  --REN  : in  STD_LOGIC;	 --READ ENABLE
            CLK   : in  STD_LOGIC
            );
 end MemoriaD;
