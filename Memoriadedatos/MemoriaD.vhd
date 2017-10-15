@@ -14,7 +14,7 @@ entity MemoriaD is
 end MemoriaD;
 
 architecture Behavioral of MemoriaD is
-TYPE MEMORIA IS ARRAY (0 to 2**15-1) OF STD_LOGIC_VECTOR (7 DOWNTO 0); --checar la organizacion, por el momento es 16x8
+TYPE MEMORIA IS ARRAY (0 to 15) OF STD_LOGIC_VECTOR (7 DOWNTO 0); --checar la organizacion, por el momento es 16x8
 SIGNAL RAM_DIST : MEMORIA;
 begin
 	PRAM: PROCESS(CLK)

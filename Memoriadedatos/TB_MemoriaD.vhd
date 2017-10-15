@@ -134,12 +134,12 @@ BEGIN
 				Hread(LINEA, VAR_ADR_R); -- Leemos la direccion de donde se leera el dato(en hexadecimal)
 				ADR_R<=VAR_ADR_R;
 				
-				wait until rising_edge(CLK);
-				wait for 100 ns;
+			--wait until rising_edge(CLK);
+			wait for 100 ns;
 
 				VAR_DOUT := DOUT;
 		
-			   write(LINEA_RES, VAR_DOUT,right, 5);	--ESCRIBE EL CAMPO Q				
+			   write(LINEA_RES, VAR_DOUT ,right, 5);	--ESCRIBE EL CAMPO DOUT			
 				writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
 				  
 		  end loop;
