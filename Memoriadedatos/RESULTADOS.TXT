@@ -1,2 +1,3 @@
- LEIDO
-UUUUUUUU
+DIN          ADR_WR     WREN    DOUT   
+10000101     0000         1     UUUUUUUU
+00000000     0000         0     10000101

@@ -46,10 +46,8 @@ ARCHITECTURE behavior OF TB_MemoriaD IS
     PORT(
          DIN : IN  std_logic_vector(7 downto 0);
          DOUT : OUT  std_logic_vector(7 downto 0);
-         ADR_W : IN  std_logic_vector(3 downto 0);
-         ADR_R : IN  std_logic_vector(3 downto 0);
+         ADR_WR : IN  std_logic_vector(15 downto 0);
          WREN : IN  std_logic;
-         --REN : IN  std_logic;
          CLK : IN  std_logic
         );
     END COMPONENT;
@@ -57,10 +55,8 @@ ARCHITECTURE behavior OF TB_MemoriaD IS
 
    --Inputs
    signal DIN : std_logic_vector(7 downto 0) := (others => '0');
-   signal ADR_W : std_logic_vector(3 downto 0) := (others => '0');
-   signal ADR_R : std_logic_vector(3 downto 0) := (others => '0');
+   signal ADR_WR : std_logic_vector(15 downto 0) := (others => '0');
    signal WREN : std_logic := '0';
-   --signal REN : std_logic := '0';
    signal CLK : std_logic := '0';
 
  	--Outputs
@@ -75,10 +71,8 @@ BEGIN
    uut: MemoriaD PORT MAP (
           DIN => DIN,
           DOUT => DOUT,
-          ADR_W => ADR_W,
-          ADR_R => ADR_R,
+          ADR_WR => ADR_WR,
           WREN => WREN,
-          --REN => REN,
           CLK => CLK
         );
 
@@ -102,21 +96,26 @@ BEGIN
 	file ARCH_DATOS: TEXT;
 	variable LINEA     : line;
    variable VAR_DIN   : STD_LOGIC_VECTOR(7 DOWNTO 0);
-	variable VAR_ADR_W : STD_LOGIC_VECTOR(3 DOWNTO 0);
+	variable VAR_ADR_WR : STD_LOGIC_VECTOR(15 DOWNTO 0);
 	variable VAR_WREN  : STD_LOGIC;
-	variable VAR_ADR_R : STD_LOGIC_VECTOR(3 DOWNTO 0);
 		
 		  --
-		VARIABLE CADENA : STRING(1 TO 5);
-		--VARIABLE ESPACIO : STRING(1 TO 2);
+	VARIABLE CADENA : STRING(1 TO 9);
+	VARIABLE ESPACIO : STRING(1 TO 2);
 		  --
 		
    begin		
 	file_open(ARCH_DATOS, "DATOS.TXT", READ_MODE);
    file_open(ARCH_RES, "RESULTADOS.TXT", WRITE_MODE);
 
-        CADENA := "LEIDO";
+        CADENA := "DIN      ";
+        write(LINEA_RES, CADENA, right, CADENA'LENGTH);  
+		  CADENA := "   ADR_WR";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);  
+		  CADENA := "    WREN ";
+        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);  
+		  CADENA := "  DOUT   ";
+        write(LINEA_RES, CADENA, right, CADENA'LENGTH+1); 
         writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
 
         for i in 0 to 1 loop
@@ -125,16 +124,20 @@ BEGIN
 
 				read(LINEA, VAR_DIN); --Leemos el din
 				DIN<= VAR_DIN;
-				Hread(LINEA, VAR_ADR_W); -- Leemos la direccion a donde se escribira (en hexadecimal)
-				ADR_W<= VAR_ADR_W;
+				Hread(LINEA, VAR_ADR_WR); -- Leemos la direccion a donde se escribira (en hexadecimal)
+				ADR_WR<= VAR_ADR_WR;
 				read(LINEA, VAR_WREN); --Leemos si se escribe o lee
 				WREN<= VAR_WREN;
 				
-				Hread(LINEA, VAR_ADR_R); -- Leemos la direccion de donde se leera el dato(en hexadecimal)
-				ADR_R<=VAR_ADR_R;
 				wait until rising_edge(CLK);
 				VAR_DOUT := DOUT;
 		
+				write(LINEA_RES, VAR_DIN ,right, 5);
+				write(LINEA_RES, ESPACIO ,right, 4);
+				hwrite(LINEA_RES, VAR_ADR_WR ,right, 5);
+				write(LINEA_RES, ESPACIO ,right, 5);
+				write(LINEA_RES, VAR_WREN ,right, 5);
+				write(LINEA_RES, ESPACIO ,right, 5);
 			   write(LINEA_RES, VAR_DOUT ,right, 5);	--ESCRIBE EL CAMPO DOUT			
 				writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
 				  
