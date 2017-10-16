@@ -83,13 +83,13 @@ BEGIN
         );
 
    -- Clock process definitions
---   CLK_process :process
---   begin
---		CLK <= '0';
---		wait for CLK_period/2;
---		CLK <= '1';
---		wait for CLK_period/2;
---   end process;
+   CLK_process :process
+   begin
+		CLK <= '0';
+		wait for CLK_period/2;
+		CLK <= '1';
+		wait for CLK_period/2;
+   end process;
  
 
    -- Stimulus process
@@ -118,8 +118,6 @@ BEGIN
         CADENA := "LEIDO";
         write(LINEA_RES, CADENA, right, CADENA'LENGTH+1);  
         writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
-        
-        wait for 100 ns;
 
         for i in 0 to 1 loop
 		  
@@ -131,12 +129,10 @@ BEGIN
 				ADR_W<= VAR_ADR_W;
 				read(LINEA, VAR_WREN); --Leemos si se escribe o lee
 				WREN<= VAR_WREN;
+				
 				Hread(LINEA, VAR_ADR_R); -- Leemos la direccion de donde se leera el dato(en hexadecimal)
 				ADR_R<=VAR_ADR_R;
-				
-			--wait until rising_edge(CLK);
-			wait for 100 ns;
-
+				wait until rising_edge(CLK);
 				VAR_DOUT := DOUT;
 		
 			   write(LINEA_RES, VAR_DOUT ,right, 5);	--ESCRIBE EL CAMPO DOUT			
