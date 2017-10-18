@@ -1,4 +1,4 @@
-DIN  ADRWR WREN DOUT
+Di    ADDR  WD   Do 
 A25B   23   0   0000
 A25B   23   1   0000
 1234   24   0   0000
