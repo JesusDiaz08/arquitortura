@@ -31,13 +31,15 @@ entity ArchivoDeRegistros is
         WD            : in  STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); -- WRITE_DATA
         DINOUT1  : inout STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); -- READ_DATA1
         DOUT2         : out STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); -- READ_DATA2
-        SHE           : in  STD_LOGIC --shift enable
+        SHE           : in  STD_LOGIC; --shift enable
+
+        DIN : inout STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0) -- La variable no sirvio
     );
 end ArchivoDeRegistros;
 
 architecture Behavioral of ArchivoDeRegistros is
 
-VARIABLE DIN : STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); --dato de entrada a los registros
+--SHARED VARIABLE DIN : STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); --dato de entrada a los registros
 TYPE MEM_TYPE IS ARRAY ((2**NBITS_ADDR)-1 DOWNTO 0) OF STD_LOGIC_VECTOR(DIN'RANGE);
 SIGNAL MEM : MEM_TYPE;
 
@@ -80,9 +82,13 @@ BEGIN
         END IF;
 
         --Elegimos que dato de escritura tomara el dato de entrada
-        DIN := DATA_OUT when SHE = '1' else
-               WD when SHE = '0';
-
+		  if (SHE = '1') then
+			   DIN <= DATA_OUT;
+		  else
+		      DIN <= WD;
+		  end if;
+        --DIN <= DATA_OUT when SHE = '1' else
+              -- WD when SHE = '0';
     END PROCESS PSHIFT;
 
 -- ESCRITURA DE MEMORIA
