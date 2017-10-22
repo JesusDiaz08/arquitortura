@@ -39,7 +39,7 @@ end ArchivoDeRegistros;
 
 architecture Behavioral of ArchivoDeRegistros is
 
---SHARED VARIABLE DIN : STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); --dato de entrada a los registros
+--VARIABLE DIN : STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); --dato de entrada a los registros
 TYPE MEM_TYPE IS ARRAY ((2**NBITS_ADDR)-1 DOWNTO 0) OF STD_LOGIC_VECTOR(DIN'RANGE);
 SIGNAL MEM : MEM_TYPE;
 
@@ -47,7 +47,7 @@ BEGIN
 
     PSHIFT : PROCESS( SHAMT, DINOUT1)
     VARIABLE SHIFT_DATA: STD_LOGIC_VECTOR(NBITS_DATA-1 DOWNTO 0);
-    VARIABLE INDICE : INTEGER RANGE -16 TO 15;
+    VARIABLE INDICE : INTEGER RANGE -8 TO 23; -- El intervalo anterior me marcaba error
     BEGIN
         IF(DIR='1') THEN                        --es corrimiento a la izq
             SHIFT_DATA:= DINOUT1;
