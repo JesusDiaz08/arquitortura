@@ -24,7 +24,7 @@ PSHIFT : PROCESS( SHIFT, DATA_IN )
 VARIABLE SHIFT_DATA: STD_LOGIC_VECTOR(7 DOWNTO 0);
 VARIABLE INDICE : INTEGER RANGE -8 TO 7;
 BEGIN
-IF(LEFTSHIFT='0') THEN 						--es corrimiento a la derecha
+IF(LEFTSHIFT='1') THEN 						--es corrimiento a la izq
 	SHIFT_DATA:= DATA_IN;
 		FOR I IN 0 TO 2 LOOP
 			FOR J IN 7 DOWNTO 0 LOOP
@@ -39,7 +39,7 @@ IF(LEFTSHIFT='0') THEN 						--es corrimiento a la derecha
 			END LOOP;
 		END LOOP;
 		DATA_OUT <= SHIFT_DATA;
-ELSE												--es corrimiento a la izquierda
+ELSE												--es corrimiento a la der
 	SHIFT_DATA:= DATA_IN;
 		FOR I IN 0 TO 2 LOOP
 			FOR J IN 0 TO 7 LOOP
