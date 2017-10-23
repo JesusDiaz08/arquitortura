@@ -163,19 +163,19 @@ BEGIN
         write(LINEA_RES, CADENA, right, CADENA'LENGTH);
         writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
 
-        for i in 0 to 2 loop
+        for i in 0 to 8 loop
             readline(ARCH_DATOS, LINEA);
 				
-				read(LINEA, VAR_READ_REGISTER1);
+				hread(LINEA, VAR_READ_REGISTER1);
 				ADDR_RD1 <= VAR_READ_REGISTER1;
 				
-				read(LINEA, VAR_READ_REGISTER2);
+				hread(LINEA, VAR_READ_REGISTER2);
 				ADDR_RD2 <= VAR_READ_REGISTER2;
 				
-				read(LINEA, VAR_SHAMT);
+				hread(LINEA, VAR_SHAMT);
 				SHAMT <= VAR_SHAMT;
 				
-				read(LINEA, VAR_WRITE_REGISTER);
+				hread(LINEA, VAR_WRITE_REGISTER);
 				ADDR_WR <= VAR_WRITE_REGISTER;
 				
 				hread(LINEA, VAR_WRITE_DATA);
@@ -190,21 +190,23 @@ BEGIN
 				read(LINEA, VAR_DIR);
             DIR <= VAR_DIR;
 				
-				wait;
+				wait until rising_edge(CLK);
 				
 				VAR_RD1 := DINOUT1;
 				VAR_RD2 := DOUT2;
 				
-				write(LINEA_RES, VAR_READ_REGISTER1, right, 5);
-				write(LINEA_RES, VAR_READ_REGISTER2, right, 5);
-				write(LINEA_RES, VAR_SHAMT, right, 5);
-				write(LINEA_RES, VAR_WRITE_REGISTER, right, 5);
-				write(LINEA_RES, VAR_WRITE_DATA, right, 5);
-				write(LINEA_RES, VAR_WR, right, 5);
+				hwrite(LINEA_RES, VAR_READ_REGISTER1, right, 1);
+				hwrite(LINEA_RES, VAR_READ_REGISTER2, right, 5);
+				hwrite(LINEA_RES, VAR_SHAMT, right, 5);
+				hwrite(LINEA_RES, VAR_WRITE_REGISTER, right, 5);
+				hwrite(LINEA_RES, VAR_WRITE_DATA, right, 8);
+				write(LINEA_RES, VAR_WR, right, 2);
 				write(LINEA_RES, VAR_SHE, right, 5);
 				write(LINEA_RES, VAR_DIR, right, 5);
-				write(LINEA_RES, VAR_RD1, right, 5);
-				write(LINEA_RES, VAR_RD2, right, 5);
+				hwrite(LINEA_RES, VAR_RD1, right, 8);
+				hwrite(LINEA_RES, VAR_RD2, right, 6);
+				
+				writeline(ARCH_RES,LINEA_RES);
 				
         end loop;
         file_close(ARCH_DATOS);
