@@ -27,6 +27,8 @@
 --------------------------------------------------------------------------------
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
+USE STD.TEXTIO.ALL;
+USE ieee.std_logic_TEXTIO.ALL;
  
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -97,19 +99,66 @@ BEGIN
 	--Archivos y variables de entrada
 	file ARCH_DATOS: TEXT;
 	variable LINEA: line;
+	variable VAR_D :STD_LOGIC_VECTOR(15 DOWNTO 0);
+	variable VAR_WPC, VAR_CLR, VAR_UP, VAR_DW : STD_LOGIC;
 	
 	--Archivos y variables de salida
 	file ARCH_RES         : TEXT;
 	variable LINEA_RES    : line;
-   begin		
-      -- hold reset state for 100 ns.
-      wait for 100 ns;	
-
-      wait for CLK_period*10;
-
+	variable CADENA : STRING(1 TO 5);
+	variable ESPACIO : STRING(1 TO 2);
+	variable VAR_Q : STD_LOGIC_VECTOR(15 DOWNTO 0);
+	variable VAR_SEL : STD_LOGIC_VECTOR(2 DOWNTO 0);
+   begin
       -- insert stimulus here
+		file_open(ARCH_DATOS, "DATOS.TXT", READ_MODE);
+		file_open(ARCH_RES, "RESULTADOS.TXT", WRITE_MODE);
 		
-
+		-- Cabecera del archivo de salida
+		CADENA := "  D  ";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH);  
+		CADENA := "  UP ";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH);  
+		CADENA := "  DW ";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH);  
+		CADENA := " WPC ";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH);
+		CADENA := " CLR ";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH); 
+		CADENA := "  SP ";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH); 
+		CADENA := "  Q  ";
+		write(LINEA_RES, CADENA, right, CADENA'LENGTH);
+		writeline(ARCH_RES,LINEA_RES); -- escribe la linea en el archivo
+		
+		for i in 0 to 19 loop
+			readline(ARCH_DATOS, LINEA);
+			hread(LINEA, VAR_D);
+			D <= VAR_D;
+			read(LINEA, VAR_UP);
+			UP <= VAR_UP;
+			read(LINEA, VAR_DW);
+			DW <= VAR_DW;
+			read(LINEA, VAR_WPC);
+			WPC <= VAR_WPC;
+			read(LINEA, VAR_CLR);
+			CLR <= VAR_CLR;
+			wait until rising_edge(CLK);
+			
+			VAR_Q := Q;
+			VAR_SEL := SEL;
+			
+			hwrite(LINEA_RES, VAR_D, right, 1);
+			write(LINEA_RES, VAR_UP, right, 4);
+			write(LINEA_RES, VAR_DW, right, 5);
+			write(LINEA_RES, VAR_WPC, right, 5);
+			write(LINEA_RES, VAR_CLR, right, 5);
+			write(LINEA_RES, VAR_SEL, right, 6);
+			hwrite(LINEA_RES, VAR_Q, right, 7);
+			writeline(ARCH_RES,LINEA_RES);
+		end loop;
+		file_close(ARCH_DATOS);
+		file_close(ARCH_RES);
       wait;
    end process;
 
