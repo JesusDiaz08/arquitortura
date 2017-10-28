@@ -20,6 +20,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.all;
 use IEEE.STD_LOGIC_ARITH.ALL;
 
 -- Uncomment the following library declaration if using
@@ -34,12 +35,12 @@ use IEEE.STD_LOGIC_ARITH.ALL;
 entity Pila is Port ( 
 	 	D : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 	 	Q : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
-	 	SEL : IN  STD_LOGIC_VECTOR(2 DOWNTO 0);
+	 	SEL : OUT  STD_LOGIC_VECTOR(2 DOWNTO 0); -- Para mostar SP(?
 	 	WPC,CLR,CLK,UP,DW : IN STD_LOGIC
 		);
 end Pila;
 
-architecture Behavioral of Pila is
+	architecture Behavioral of Pila is
 TYPE REGISTRO IS ARRAY (0 to 2**3-1) OF STD_LOGIC_VECTOR (15 DOWNTO 0);
 
 BEGIN
@@ -65,6 +66,7 @@ VARIABLE PC : REGISTRO;
 			END IF;
 		END IF;
 		Q <= PC(SP);
+		SEL <= std_logic_vector(to_unsigned(SP, SEL'length));
 END PROCESS PPILA;
 
 
