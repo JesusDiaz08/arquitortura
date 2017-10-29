@@ -53,15 +53,15 @@ VARIABLE PC : REGISTRO;
 			SP := 0;
 			PC := (OTHERS => (OTHERS => '0'));
 		ELSIF(RISING_EDGE(CLK)) THEN
-			IF(WPC='1' AND UP='0' AND DW ='0') THEN --brincos
+			IF(UP='0' AND DW ='0' AND WPC='1') THEN --brincos
 				PC(SP):=D;
-			ELSIF(WPC='1' AND UP='1' AND DW ='0') THEN --call 
+			ELSIF(UP='1' AND DW ='0' AND WPC='1') THEN --call 
 				SP := SP+1;
 				PC(SP):=D;
-			ELSIF(WPC='0' AND UP='0' AND DW ='1') THEN --return
+			ELSIF(UP='0' AND DW ='1' AND WPC='0') THEN --return
 				SP := SP-1;
 				PC(SP):= PC(SP)+1;
-			ELSIF(WPC='0' AND UP='0' AND DW ='0') THEN --return
+			ELSIF(UP='0'  AND DW ='0' AND WPC='0') THEN --return
 				PC(SP):= PC(SP)+1;
 			END IF;
 		END IF;

@@ -33,13 +33,13 @@ end mi_paquete;
 
 package body mi_paquete is
 
-component contador is
-    Port ( D : in  STD_LOGIC_VECTOR (3 downto 0);
-           Q : inout  STD_LOGIC_VECTOR (3 downto 0);
-           L : in  STD_LOGIC;
-           I : in  STD_LOGIC;
-           CLK : in  STD_LOGIC;
-           CLR : in  STD_LOGIC);
-end component;
+--component contador is
+--    Port ( D : in  STD_LOGIC_VECTOR (3 downto 0);
+--           Q : inout  STD_LOGIC_VECTOR (3 downto 0);
+--           L : in  STD_LOGIC;
+--           I : in  STD_LOGIC;
+--           CLK : in  STD_LOGIC;
+--           CLR : in  STD_LOGIC);
+--end component;
  
 end mi_paquete;
