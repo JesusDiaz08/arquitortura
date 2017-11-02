@@ -15,8 +15,8 @@ entity registro is
            Q : inout  STD_LOGIC_VECTOR (7 downto 0);
            LA : in  STD_LOGIC;
            EA : in  STD_LOGIC;
+			  --SH : in  STD_LOGIC;
            CLK : in  STD_LOGIC;
-           SH : in  STD_LOGIC;
            CLR : in  STD_LOGIC);
 end registro;
 
@@ -27,9 +27,9 @@ begin
 		IF(CLR= '1') THEN
 			Q<=(OTHERS => '0');
 		ELSIF(RISING_EDGE(CLK))THEN
-			IF (L='1')THEN
+			IF (LA='1')THEN
 			Q<=D;
-			ELSIF(SH='1')THEN
+			ELSIF(EA='1')THEN
 			 --CASTEAMOS A BITVECTOR PARA CORRIMIENTO Y STD_LOGIC PARA ASIGNACION
 			Q<= TO_STDLOGICVECTOR (TO_BITVECTOR (Q) SRL 1);
 			END IF; --LA RETENCION YA ESTA INFERIDA 
