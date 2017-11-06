@@ -21,7 +21,7 @@ begin
 	CONT: contador PORT MAP(X"0", QB, LB, IB, CLK, CLR);
 	REG: registro PORT MAP(DATOS, QA, LA, SH, CLK, CLR);
 	COD: codigo PORT MAP(QB, CODIG); 
-	CON: control PORT MAP(CLK, CLR, INI, Z, QA(0), LA, SH, LB, IB, SD);
+	CON: control PORT MAP(CLR, CLK, INI, Z, QA(0), LA, SH, LB, IB, SD);
 
 	--mux
 	DISP <= "1111110" WHEN SD = '0' ELSE CODIG;
