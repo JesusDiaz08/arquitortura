@@ -18,15 +18,15 @@ signal CODIG: STD_LOGIC_VECTOR (6 downto 0);
 signal LB, IB, LA, SH, SD, Z: STD_LOGIC;
 
 begin
+	CON: control PORT MAP(CLK, CLR, INI, Z, QA(0), LA, SH, LB, IB, SD);
 	CONT: contador PORT MAP(X"0", QB, LB, IB, CLK, CLR);
 	REG: registro PORT MAP(DATOS, QA, LA, SH, CLK, CLR);
 	COD: codigo PORT MAP(QB, CODIG); 
-	CON: control PORT MAP(CLK, CLR, INI, Z, QA(0), LA, SH, LB, IB, SD);
 
 	--mux
 	DISP <= "1111110" WHEN SD = '0' ELSE CODIG;
 	--bandera cero
-	Z <= '0' when  QA = X"00" else '1';
+	Z <= '1' when  QA = X"00" else '0';
 	
 end Behavioral;
 

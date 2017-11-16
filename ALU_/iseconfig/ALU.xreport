@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-11-05T19:48:37</DateModified>
+  <DateModified>2017-11-06T14:23:36</DateModified>
   <ModuleName>ALU</ModuleName>
   <SummaryTimeStamp>2017-09-12T22:06:29</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/reymy/Documents/quinto/arquitortura/ALU_/iseconfig/ALU.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/reymy/Documents/quinto/arquitortura/ALU_\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_/iseconfig/ALU.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/ANDRES/Documents/GitHub/arquitortura/ALU_\</ImplementationReportsDirectory>
   <DateInitialized>2017-09-12T21:05:51</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
