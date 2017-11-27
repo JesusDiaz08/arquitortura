@@ -8,14 +8,14 @@ COMPONENT FSMCONTROL is
 		  SDOPC 				: out  STD_LOGIC;
 		  TIPOR 				: in  STD_LOGIC;
 		  BEQI 				: in  STD_LOGIC;
-		  BNEI 				: in  STD_LOGIC;
+		  BNEQI 				: in  STD_LOGIC;
 		  BLTI 				: in  STD_LOGIC;
 		  BLETI 				: in  STD_LOGIC;
 		  BGTI 				: in  STD_LOGIC;
 		  BGETI 				: in  STD_LOGIC;
 		  EQ 					: in  STD_LOGIC;
 		  NEQ 				: in  STD_LOGIC;
-		  LTI 				: in  STD_LOGIC;
+		  LT 				: in  STD_LOGIC;
 		  LE 					: in  STD_LOGIC;
 		  GTI 				: in  STD_LOGIC;
 		  GET 				: in  STD_LOGIC;
@@ -28,7 +28,7 @@ COMPONENT INSTRUCCIONES is
  Port ( OPCODE 			: in  STD_LOGIC_VECTOR (4 downto 0);
 		  TIPOR 				: out  STD_LOGIC;
 		  BEQI 				: out  STD_LOGIC;
-		  BNEI 				: out  STD_LOGIC;
+		  BNEQI 				: out  STD_LOGIC;
 		  BLTI 				: out  STD_LOGIC;
 		  BLETI 				: out  STD_LOGIC;
 		  BGTI 				: out  STD_LOGIC;
