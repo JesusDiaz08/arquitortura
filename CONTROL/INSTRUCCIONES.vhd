@@ -37,7 +37,7 @@ entity INSTRUCCIONES is
            BLETI : out  STD_LOGIC;
            BGTI : out  STD_LOGIC;
            BGETI : out  STD_LOGIC;
-           BNETI : out  STD_LOGIC);
+           BNEQI : out  STD_LOGIC);
 end INSTRUCCIONES;
 
 architecture Behavioral of INSTRUCCIONES is
@@ -45,7 +45,7 @@ architecture Behavioral of INSTRUCCIONES is
 begin
 	TIPOR<= '1' WHEN(OPCODE="00000") ELSE '0';
 	BEQI <= '1' WHEN(OPCODE="01101") ELSE '0';--13
-	BNETI<= '1' WHEN(OPCODE="01110") ELSE '0';--14
+	BNEQI<= '1' WHEN(OPCODE="01110") ELSE '0';--14
 	BLTI <= '1' WHEN(OPCODE="01111") ELSE '0';--15
 	BLETI<= '1' WHEN(OPCODE="10000") ELSE '0';--16
 	BGTI <= '1' WHEN(OPCODE="10001") ELSE '0';--17
