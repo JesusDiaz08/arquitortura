@@ -42,7 +42,7 @@ entity FSMCONTROL is
            NA : in  STD_LOGIC;
            EQ : in  STD_LOGIC;
            NEQ : in  STD_LOGIC;
-           LTI : in  STD_LOGIC;
+           LT : in  STD_LOGIC;
            LE : in  STD_LOGIC;
            GTI : in  STD_LOGIC;
            GET : in  STD_LOGIC;
@@ -55,41 +55,129 @@ architecture PROGRAMA of FSMCONTROL is
 TYPE ESTADOS IS(A);
 SIGNAL EDO_ACT, EDO_STE:ESTADOS;
 begin
-	AUTOMATA: PROCESS(EDO_ACT,TIPOR)--TODAS LAS ENTRADAS DE INSTRUCCIONES
+	AUTOMATA : PROCESS(EDO_ACT, TIPOR, BEQI, BNEQI, BLTI, BLETI, BGTI, BGETI, NA, EQ, NEQ, LT, LE, GTI, GET)--TODAS LAS ENTRADAS DE INSTRUCCIONES
 	BEGIN
-		SM <='0';
+		--INICIALIZAR
+		SM <= '0';
 		SDOPC <= '0';
+		--CONTINUARA...LISTO
 		CASE EDO_ACT IS
-			WHEN A => 
-				IF(TIPOR = '1') THEN
-					EDO_STE<=A;
-				ELSE
+			WHEN A =>
+				IF (TIPOR = '1') THEN
+					--SDOPC NO IMPORTA QUE TENGA
+					EDO_SGTE <= A;
+				ELSE -- TIPOR = 0
 					IF(BEQI = '1') THEN
 						IF(NA = '1') THEN
-							SM<='1';
-							EDO_STE<=A;
-						ELSE
-							IF( EQ = '1')THEN
-								SM<= '1';
-								SDOPC<= '1';
-								EDO_STE <= A;
-							ELSE
+							SM <= '1'; --SOPC YA ESTA EN 0
+							EDO_SGTE <= A;
+						ELSE --NA = 0
+							IF(EQ = '1') THEN
 								SM <= '1';
-								EDO_STE <= A;
-								--CONTINUARA....
+								SDOPC <= '1';
+								EDO_SGTE <= A;
+							ELSE -- EQ = 0
+								SM <= '1'; --SOPC YA ESTA EN 0
+								EDO_SGTE <= A;
+							END IF;--EQ
+						END IF;--NA
+					ELSE	--BEQI = 0
+						IF(BNEQI = '1') THEN
+							IF(NA = '1') THEN
+								SM <= '1'; --SOPC YA ESTA EN 0
+								EDO_SGTE <= A;
+							ELSE --NA = 0
+								IF(NEQ = '1') THEN
+									SM <= '1';
+									SDOPC <= '1';
+									EDO_SGTE <= A;
+								ELSE -- NEQ = 0
+									SM <= '1'; --SOPC YA ESTA EN 0
+									EDO_SGTE <= A;
+								END IF;-- NEQ	
+							END IF;--NA
+						ELSE --BNEQI = 0
+							IF(BLTI = '1') THEN
+								IF(NA = '1') THEN
+									SM <= '1'; --SOPC YA ESTA EN 0
+									EDO_SGTE <= A;
+								ELSE --NA = 0
+									IF(LT = '1') THEN
+										SM <= '1';
+										SDOPC <= '1';
+										EDO_SGTE <= A;
+									ELSE--LT = 0
+										SM <= '1'; --SOPC YA ESTA EN 0
+										EDO_SGTE <= A;
+									END IF;-- LT	
+								END IF;--NA
+							ELSE -- BLTI = 0
+								IF(BLETI = '1') THEN
+									IF(NA = '1') THEN
+										SM <= '1'; --SOPC YA ESTA EN 0
+										EDO_SGTE <= A;
+									ELSE --NA = 0
+										IF(LE = '1') THEN
+											SM <= '1';
+											SDOPC <= '1';
+											EDO_SGTE <= A;
+										ELSE-- LE = 0
+											SM <= '1'; --SOPC YA ESTA EN 0
+											EDO_SGTE <= A;
+										END IF;-- LE
+									END IF;--NA
+								ELSE--BLETI = 0
+									IF(BGTI = '1') THEN
+										IF(NA = '1') THEN
+											SM <= '1'; --SOPC YA ESTA EN 0
+											EDO_SGTE <= A;
+										ELSE --NA = 0
+											IF(GTI = '1') THEN
+												SM <= '1';
+												SDOPC <= '1';
+												EDO_SGTE <= A;
+											ELSE--GTI = 0
+												SM <= '1'; --SOPC YA ESTA EN 0
+												EDO_SGTE <= A;
+											END IF;-- GTI	
+										END IF;--NA
+									ELSE --BGTI = 0
+										IF(BGETI = '1') THEN
+											IF(NA = '1') THEN
+												SM <= '1'; --SOPC YA ESTA EN 0
+												EDO_SGTE <= A;
+											ELSE --NA = 0
+												IF(GET = '1') THEN
+													SM <= '1';
+													SDOPC <= '1';
+													EDO_SGTE <= A;
+												ELSE--GET = 0
+													SM <= '1'; --SOPC YA ESTA EN 0
+													EDO_SGTE <= A;
+												END IF;-- GET
+											END IF;--NA
+										ELSE--BGETI = 0 
+											SM <= '1';
+											SDOPC <= '1';
+											EDO_SGTE <= A;
+										END IF;
+									END IF;
+								END IF;
 							END IF;
 						END IF;
-					ELSE 
-						
 					END IF;
 				END IF;
-		END CASE;
+			END CASE;
 	END PROCESS AUTOMATA;
 
-	TRANSICION: PROCESS(EDO_ACT)
+	TRANSICION : PROCESS(CLK, CLR)
 	BEGIN
-	
-	END PROCESS TRANCISION;
+		IF(CLR = '1') THEN
+			EDO_ACT <= A;
+		ELSIF(RISING_EDGE(CLK)) THEN
+			EDO_ACT <= EDO_SGTE;
+		END IF;
+	END PROCESS TRANSICION;
 
 end PROGRAMA;
 
