@@ -48,7 +48,6 @@ entity FSMCONTROL is
            GET : in  STD_LOGIC;
            CLR : in  STD_LOGIC;
            CLK : in  STD_LOGIC);
-			  --CHECAR TODAS LAS ENTRADAS DE INSTRUCCIONES
 end FSMCONTROL;
 
 architecture PROGRAMA of FSMCONTROL is

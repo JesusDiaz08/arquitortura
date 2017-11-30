@@ -3,7 +3,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity OPERACION is
     Port ( A : in  STD_LOGIC_VECTOR (4 downto 0);
-           D : out  STD_LOGIC_VECTOR (19 downto 0));
+           D : out STD_LOGIC_VECTOR (19 downto 0));
 end OPERACION;
 
 architecture MEMORIA of OPERACION is

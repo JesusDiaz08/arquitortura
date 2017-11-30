@@ -37,7 +37,7 @@ entity ALU is
 		OP : in  STD_LOGIC_VECTOR(1 downto 0);
 		RES : out  STD_LOGIC_VECTOR(N-1 downto 0); --inout
 		A : in  STD_LOGIC_VECTOR (N-1 downto 0);
-      B : in  STD_LOGIC_VECTOR (N-1 downto 0);
+      	B : in  STD_LOGIC_VECTOR (N-1 downto 0);
 		--Banderas
 		BZ,BC,BN, BOV: out  STD_LOGIC
 		);
