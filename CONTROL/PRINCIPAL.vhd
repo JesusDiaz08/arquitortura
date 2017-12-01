@@ -3,33 +3,37 @@ library WORK;
 use IEEE.STD_LOGIC_1164.ALL;
 use WORK.Mi_Paquete.all;
 
-entity PRINCIPAL is
+entity PRINCIPAL is port(
+	CLK, CLR , OV, N, C, Z, LF : IN STD_LOGIC;
+	OPCODE : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
+	FUNCODE : IN STD_LOGIC_VECTOR(3 DOWNTO 0));
 end PRINCIPAL;
+
 
 architecture PROGRAMA of PRINCIPAL is
 
 	SIGNAL RBANDERAS		 									: STD_LOGIC_VECTOR( 3 DOWNTO 0 );
 	SIGNAL SEL			 										: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
-	SIGNAL S1 , S2					 							: STD_LOGIC_VECTOR( 19 DOWNTO 0 );
-	SIGNAL SDOPC , SM , NIV_ALTO	, CLK , CLR	 		: STD_LOGIC;
-	SIGNAL EQ , NEQ, LT, LE, GTI, GET ,OV, N, C, Z	: STD_LOGIC;
-	SIGNAL TIPOR , BEQI , BNEI , BLTI , BLETI , BGTI , BGETI	: STD_LOGIC;
-	
+	SIGNAL BUSFUNC , BUSOP					 				: STD_LOGIC_VECTOR( 19 DOWNTO 0 );
+	--UC
+	SIGNAL SDOPC , SM , NIV_ALTO	 						: STD_LOGIC;
+	SIGNAL EQ , NEQ, LT, LE, GTI, GET					: STD_LOGIC;
+	SIGNAL TIPOR , BEQI , BNEQI , BLTI , BLETI , BGTI , BGETI	: STD_LOGIC;
 begin
 	NIV	:	NIVEL PORT MAP (
-	 		CLK => CLK,
-	 		CLR => CLR,
+	 		CLK		 => CLK,
+	 		CLR 		 => CLR,
 	 		NIV_ALTO  => NIV_ALTO);
 
 	EST : 	ESTADO PORT MAP (
-			OV 		  => OV, --checar
-			N         => N,
-			C 		  => C,
-			Z  		  => Z,  --checar
+			OV 	    => OV, 
+			N      	 => N,
+			C 		 	 => C,
+			Z  	  	 => Z,  
 			RBANDERAS => RBANDERAS, 
-			LF  	  => S1(10),  --checar
-			CLK		  => CLK,
-			CLR 	  => CLR);
+			LF  	  	 => LF,  --checar
+			CLK	  	 => CLK,
+			CLR 	  	 => CLR);
 
 	COND: 	CONDICION PORT MAP (
 	 		RBANDERAS	=> RBANDERAS,
@@ -40,15 +44,47 @@ begin
 	 		GTI 		=> GTI,
 	 		GET 		=> GET);
 
---	INST	: INSTRUCCIONES PORT MAP ( I(24)&I(23)&I(22)&I(21)&I(20) , TIPOR , BEQI , BNEI , BLTI , BLETI , BGTI , BGETI );
---	CONT	: FSMCONTROL PORT MAP ( SM , SDOPC , TIPOR , BEQI , BNEI , BLTI , BLETI , BGTI , BGETI , EQ , NEQ , LT , LE , GTI , GET , NA , CLK , CLR );	
---	--SDOPC
---	SEL <= "00000" WHEN SDOPC = '0' ELSE I(24)&I(23)&I(22)&I(21)&I(20);	
---	FUNCION	: FUNCION PORT MAP ( I(3)&I(2)&I(1)&I(0) , S1 );
---	OPCODE	: OPERACION PORT MAP ( SEL , S2 );
---	--SM
---	S1 <= S1 WHEN SM = '0' ELSE S2;
---	S  <= S1;
+	INST	: INSTRUCCIONES PORT MAP (
+			 OPCODE	=> OPCODE,
+			 TIPOR 	=> TIPOR,
+			 BEQI 	=> BEQI,
+			 BNEQI 	=> BNEQI,
+			 BLTI 	=> BLTI,
+			 BLETI 	=> BLETI,
+			 BGTI 	=> BGTI,
+			 BGETI 	=>	BGETI);
+	 
+	UCONT	: FSMCONTROL PORT MAP (
+			SDOPC		=> SDOPC,
+			SM			=> SM,
+			TIPOR 	=> TIPOR,
+			BEQI 		=> BEQI,
+			BNEQI 	=> BNEQI,
+			BLTI 		=> BLTI,
+			BLETI 	=> BLETI,
+			BGTI 		=> BGTI,
+			BGETI 	=>	BGETI,
+			NA			=> NIV_ALTO,
+			EQ   		=> EQ,
+	 		NEQ 		=> NEQ,
+	 		LT 		=> LT,
+	 		LE 		=> LE,
+	 		GTI 		=> GTI,
+	 		GET 		=> GET,
+			CLK	  	=> CLK,
+			CLR 	  	=> CLR
+	);	
+
+	FUNC	: FUNCION PORT MAP ( 
+			A 	=> FUNCODE,
+			D	=> BUSFUNC
+	);
+	
+	CODOP	: OPERACION PORT MAP (
+			A 	=> OPCODE,
+			D	=> BUSOP
+	);
+
 
 end PROGRAMA;
 
