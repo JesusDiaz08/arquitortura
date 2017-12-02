@@ -18,9 +18,9 @@ begin
 	PREG: PROCESS(CLK,CLR)
 	BEGIN 
 		IF(CLR='1')THEN
-			RBANDERAS<=(OTHERS => '1');
+			RBANDERAS<=(OTHERS => '0');
 		ELSIF(FALLING_EDGE(CLK)) THEN
-			IF( LF='0')THEN 
+			IF( LF='1')THEN 
 				RBANDERAS(0) <= Z;
 				RBANDERAS(1) <= C;
 				RBANDERAS(2) <= N;
