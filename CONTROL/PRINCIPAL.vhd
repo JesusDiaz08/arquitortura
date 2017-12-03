@@ -66,7 +66,7 @@ begin
 	 		GTI 		=> GTI,
 	 		GET 		=> GET);
 
-	INST	: INSTRUCCION PORT MAP (
+	INST	: INSTRUCCIONES PORT MAP (
 			 OPCODE	=> OPCODE,
 			 TIPOR 	=> TIPOR,
 			 BEQI 	=> BEQI,
@@ -102,13 +102,15 @@ begin
 			D	=> BUSFUNC
 	);
 	
+	--BUS DE 0'S , MUX DE SDOPC
+	SEL <= "00000" WHEN SDOPC = '0' ELSE OPCODE;
+	
 	CODOP	: OPERACION PORT MAP (
-			A 	=> OPCODE,
+			A 	=> SEL,
 			D	=> BUSOP
 	);
 	
-	--BUS DE 0'S , MUX DE SDOPC
-	SEL <= "00000" WHEN SDOPC = '0' ELSE OPCODE;
+
 	--BUS DE SALIDA "S", MUX
 	S <= BUSFUNC WHEN SM = '0' ELSE BUSOP;
 	

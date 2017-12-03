@@ -120,7 +120,7 @@ BEGIN
         
         wait for 100 ns;
 		  -- Creo que es asi
-        for i in 0 to 4 loop
+        for i in 0 to 6 loop
             readline(ARCH_A, LINEA_A);
 				Hread(LINEA_A, VAR_A); -- leemos un valor que esta en hexadecimal
             A <= VAR_A; -- lo asignamos a nuestro valor de entrada

@@ -97,7 +97,7 @@ BEGIN
         write(LINEA_RES, CADENA, right, CADENA'LENGTH); 
         writeline(ARCH_RES,LINEA_RES);-- escribe la linea en el archivo
 
-        for i in 0 to 11 loop
+        for i in 0 to 12 loop
 		  
 				readline(ARCH_DATOS, LINEA);
 
