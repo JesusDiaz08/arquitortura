@@ -1,25 +1,47 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date:    23:27:51 11/26/2017 
+-- Design Name: 
+-- Module Name:    PRINCIPAL - Behavioral 
+-- Project Name: 
+-- Target Devices: 
+-- Tool versions: 
+-- Description: 
+--
+-- Dependencies: 
+--
+-- Revision: 
+-- Revision 0.01 - File Created
+-- Additional Comments: 
+--
+----------------------------------------------------------------------------------
 library IEEE;
 library WORK;
 use IEEE.STD_LOGIC_1164.ALL;
 use WORK.Mi_Paquete.all;
 
+
 entity PRINCIPAL is port(
 	CLK, CLR , OV, N, C, Z, LF : IN STD_LOGIC;
 	OPCODE : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-	FUNCODE : IN STD_LOGIC_VECTOR(3 DOWNTO 0));
+	FUNCODE : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	S : OUT STD_LOGIC_VECTOR(19 DOWNTO 0)
+	);
 end PRINCIPAL;
 
-
 architecture PROGRAMA of PRINCIPAL is
-
-	SIGNAL RBANDERAS		 									: STD_LOGIC_VECTOR( 3 DOWNTO 0 );
-	SIGNAL SEL			 										: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
-	SIGNAL BUSFUNC , BUSOP					 				: STD_LOGIC_VECTOR( 19 DOWNTO 0 );
-	--UC
-	SIGNAL SDOPC , SM , NIV_ALTO	 						: STD_LOGIC;
-	SIGNAL EQ , NEQ, LT, LE, GTI, GET					: STD_LOGIC;
+	SIGNAL RBANDERAS		 												: STD_LOGIC_VECTOR( 3 DOWNTO 0 );
+	SIGNAL SEL			 													: STD_LOGIC_VECTOR( 4 DOWNTO 0 );
+	SIGNAL BUSFUNC , BUSOP		 										: STD_LOGIC_VECTOR( 19 DOWNTO 0 );
+	
+	SIGNAL SDOPC , SM , NIV_ALTO		 								: STD_LOGIC;
+	SIGNAL EQ , NEQ , LT , LE , GTI , GET							: STD_LOGIC;
 	SIGNAL TIPOR , BEQI , BNEQI , BLTI , BLETI , BGTI , BGETI	: STD_LOGIC;
+
 begin
+	
 	NIV	:	NIVEL PORT MAP (
 	 		CLK		 => CLK,
 	 		CLR 		 => CLR,
@@ -31,7 +53,7 @@ begin
 			C 		 	 => C,
 			Z  	  	 => Z,  
 			RBANDERAS => RBANDERAS, 
-			LF  	  	 => LF,  --checar
+			LF  	  	 => LF,
 			CLK	  	 => CLK,
 			CLR 	  	 => CLR);
 
@@ -44,7 +66,7 @@ begin
 	 		GTI 		=> GTI,
 	 		GET 		=> GET);
 
-	INST	: INSTRUCCIONES PORT MAP (
+	INST	: INSTRUCCION PORT MAP (
 			 OPCODE	=> OPCODE,
 			 TIPOR 	=> TIPOR,
 			 BEQI 	=> BEQI,
@@ -84,7 +106,11 @@ begin
 			A 	=> OPCODE,
 			D	=> BUSOP
 	);
-
-
+	
+	--BUS DE 0'S , MUX DE SDOPC
+	SEL <= "00000" WHEN SDOPC = '0' ELSE OPCODE;
+	--BUS DE SALIDA "S", MUX
+	S <= BUSFUNC WHEN SM = '0' ELSE BUSOP;
+	
+	
 end PROGRAMA;
-
