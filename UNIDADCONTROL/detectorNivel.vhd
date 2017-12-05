@@ -1,0 +1,34 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity NIVEL is
+    Port ( CLK : in  STD_LOGIC;
+           CLR : in  STD_LOGIC;
+           NA : out  STD_LOGIC);
+end NIVEL;
+
+architecture Behavioral of NIVEL is
+SIGNAL PCLK, NCLK:STD_LOGIC;
+begin
+	PPCLK: PROCESS(CLK, CLR)
+	BEGIN
+		IF(CLR='1')THEN
+			PCLK<='0';
+		ELSIF(CLK'EVENT AND CLK='1') THEN
+			PCLK<=NOT PCLK;
+		END IF;
+	END PROCESS PPCLK;
+	
+	NA<=PCLK XOR NCLK;
+	
+	PNCLK:PROCESS (CLK, CLR)
+	BEGIN
+		IF(CLR='1') THEN
+			NCLK<='1';
+		ELSIF(CLK'EVENT AND CLK='0') THEN --ESTE ES 0z
+			NCLK<=NOT NCLK;
+		END IF;
+	END PROCESS PNCLK;
+
+end Behavioral;
+

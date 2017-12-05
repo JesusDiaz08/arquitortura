@@ -187,7 +187,7 @@ BEGIN
 			hwrite(LINEA_SAL, S , right, 3);	
 			write(LINEA_SAL, "  " , right, 2);	
 			
-			write(LINEA_SAL, "ALTO", right, 4);
+			write(LINEA_SAL, "BAJO", right, 4);
 			
 			writeline(ARCH_SAL,LINEA_SAL);-- escribe la linea en el archivo
 			
@@ -212,7 +212,7 @@ BEGIN
 			hwrite(LINEA_SAL, S , right, 3);	
 			write(LINEA_SAL, "  " , right, 2);	
 			
-			write(LINEA_SAL, "BAJO", right, 4);
+			write(LINEA_SAL, "ALTO", right, 4);
 			
 			writeline(ARCH_SAL,LINEA_SAL);-- escribe la linea en el archivo
 		

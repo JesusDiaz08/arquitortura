@@ -16,11 +16,11 @@ architecture Behavioral of CONDICION is
 --BANDERAS(1):C,BANDERAS(0):Z
 
 begin
-	EQ <= RBANDERAS(0);
-	NEQ <= NOT RBANDERAS(0);
-	LT <= (RBANDERAS(2) XOR RBANDERAS(3)) AND NOT RBANDERAS(0); --L <= (N XOR OV) AND NOT Z
-	LE <= RBANDERAS(0) OR (RBANDERAS(2) XOR RBANDERAS(3));
-	GTI <= (NOT RBANDERAS(0)) AND (NOT (RBANDERAS(2) XOR RBANDERAS(3)));
-	GET <= (NOT (RBANDERAS(2) XOR RBANDERAS(3))) OR RBANDERAS(0);
+	EQ 	<= RBANDERAS(1) or (RBANDERAS(0) XOR RBANDERAS(0));																	--Z
+	NEQ <= NOT RBANDERAS(1);															--NOT Z
+	LT 	<= (RBANDERAS(2) XOR RBANDERAS(3)) AND NOT RBANDERAS(1);				--(N xor OV)*(Z)complemento	--menor	
+	LE 	<= RBANDERAS(1) OR (RBANDERAS(2) XOR RBANDERAS(3)); 					--Z+(N xor OV)	--igual o menor
+	GTI <=(NOT RBANDERAS(1)) AND (NOT (RBANDERAS(2) XOR RBANDERAS(3)));	--(Z)complemento*(N xor OV)complemento
+	GET <=(NOT (RBANDERAS(2) XOR RBANDERAS(3))) OR RBANDERAS(1);			--(N xor OV)complemento + Z
 end Behavioral;
 

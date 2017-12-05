@@ -24,7 +24,7 @@ COMPONENT FSMCONTROL is
 		  BGETI 				: in  STD_LOGIC;
 		  EQ 					: in  STD_LOGIC;
 		  NEQ 				: in  STD_LOGIC;
-		  LT 				: in  STD_LOGIC;
+		  LT 					: in  STD_LOGIC;
 		  LE 					: in  STD_LOGIC;
 		  GTI 				: in  STD_LOGIC;
 		  GET 				: in  STD_LOGIC;

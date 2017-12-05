@@ -1,0 +1,26 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use WORK.PAQUETE_CONTROL.ALL;
+
+entity MEMORIAOPERACION is
+    Port ( A : in  STD_LOGIC_VECTOR (4 downto 0);
+           D : out  STD_LOGIC_VECTOR (DATA_FUN_N-1 downto 0));
+end MEMORIAOPERACION;
+
+architecture ROM_Operaciones of MEMORIAOPERACION is
+	
+	SIGNAL MEMOP: MEMORIA2 := FILLMEMO2("MEMOOP.txt");
+
+begin
+
+	MEMP: PROCESS (A, MEMOP)
+	BEGIN
+		D <= MEMOP(CONV_INTEGER(A));	
+	END PROCESS MEMP;
+
+
+end ROM_Operaciones;
+
+
