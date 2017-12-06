@@ -19,7 +19,7 @@ entity ArchivoDeRegistros is
     ); 
     Port (
         -------------------------barrel-----------------------------
-        
+        --DATA_OUT  : inout  STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); --salida del barrel y entrada al mux
         SHAMT     : in  STD_LOGIC_VECTOR (NBITS_ADDR-1 downto 0);
         DIR          : in STD_LOGIC;
         -------------------------registros--------------------------
@@ -36,7 +36,7 @@ entity ArchivoDeRegistros is
 end ArchivoDeRegistros;
 
 architecture Behavioral of ArchivoDeRegistros is
-SIGNAL DATA_OUT  : STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); --salida del barrel y entrada al mux
+SIGNAL DATA_OUT  : STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0);
 SIGNAL DIN : STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); --dato de entrada a los registros
 TYPE MEM_TYPE IS ARRAY ((2**NBITS_ADDR)-1 DOWNTO 0) OF STD_LOGIC_VECTOR(DIN'RANGE);
 SIGNAL MEM : MEM_TYPE;
@@ -80,7 +80,7 @@ BEGIN
     END PROCESS PSHIFT;
 
 -- ESCRITURA DE MEMORIA
-    PMEM : PROCESS( CLK, SHE, WD)
+    PMEM : PROCESS( CLK, SHE, DATA_OUT, WD)
     BEGIN
         --Elegimos que dato de escritura tomara el dato de entrada
 		  IF (SHE = '1') THEN

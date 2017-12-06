@@ -16,7 +16,7 @@ ARCHITECTURE behavior OF TB_ArchivoDeRegistros IS
  
     COMPONENT ArchivoDeRegistros
     PORT(
-         DATA_OUT : INOUT  std_logic_vector(15 downto 0);
+--         DATA_OUT : INOUT  std_logic_vector(15 downto 0);
          SHAMT : IN  std_logic_vector(3 downto 0);
          DIR : IN  std_logic;
          CLK : IN  std_logic;
@@ -45,7 +45,7 @@ ARCHITECTURE behavior OF TB_ArchivoDeRegistros IS
    signal SHE : std_logic := '0';
 
 	--BiDirs
-   signal DATA_OUT : std_logic_vector(15 downto 0);
+--   signal DATA_OUT : std_logic_vector(15 downto 0);
    signal DINOUT1 : std_logic_vector(15 downto 0);
    --signal DIN : std_logic_vector(15 downto 0);
 
@@ -59,7 +59,7 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: ArchivoDeRegistros PORT MAP (
-          DATA_OUT => DATA_OUT,
+  --        DATA_OUT => DATA_OUT,
           SHAMT => SHAMT,
           DIR => DIR,
           CLK => CLK,
