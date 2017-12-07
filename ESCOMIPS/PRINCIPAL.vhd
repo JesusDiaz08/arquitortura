@@ -5,7 +5,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity PRINCIPAL is
  Port ( 
-	  CLK : 		 in  STD_LOGIC; 
+	  OSC_CLK : 		 in  STD_LOGIC; -- clock que se debe dividir 
 	  CLR : 		 in  STD_LOGIC;
 	  DATA_IN  :  out STD_LOGIC_VECTOR(15 downto 0);
 	  WRITE_DATA : out STD_LOGIC;
@@ -14,7 +14,11 @@ entity PRINCIPAL is
 end PRINCIPAL;
 
 architecture Behavioral of PRINCIPAL is
+	-- divisor
+	SIGNAL CLK : STD_LOGIC;
+   SIGNAL Q_CONT : INTEGER RANGE 0 TO 4500000-1;
 	--memoria del prog
+	SIGNAL CLK : STD_LOGIC;
 	SIGNAL BusAzulrey : STD_LOGIC_VECTOR (15 downto 0);
 	SIGNAL Bus_25 : STD_LOGIC_VECTOR (24 downto 0);
 	--pila
@@ -44,6 +48,21 @@ architecture Behavioral of PRINCIPAL is
 	SIGNAL Bus_20: STD_LOGIC_VECTOR (19 DOWNTO 0);
 	
 begin
+
+	DIVISOR : PROCESS(CLR, OSC_CLK)
+	BEGIN
+		IF (CLR = '1') THEN
+			Q_CONT <= 0;
+		ELSIF(RISING_EDGE(OSC_CLK)) THEN
+			Q_CONT <= Q_CONT + 1;
+			IF (Q_CONT = 0) THEN
+			--IF (Q_CONT = 50000000) THEN
+			--IF (Q_CONT = "10" & X"FAF080") THEN
+				CLK <= NOT CLK;
+				--Q_CONT <= 0;
+			END IF;
+		END IF;
+	END PROCESS DIVISOR;
 
 	MEMORIA_PROGRAMA : programa PORT MAP( 
 			A => BusAzulrey,
