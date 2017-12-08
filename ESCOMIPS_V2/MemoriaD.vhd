@@ -5,7 +5,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity MemoriaD is
 	 GENERIC(
 		DATA_N: INTEGER:=16;
-		ADDR_N: INTEGER:=8
+		ADDR_N: INTEGER:=16 --8
 	 );
     Port ( Di    : in  STD_LOGIC_VECTOR (DATA_N-1 downto 0);
 			  Do   : out  STD_LOGIC_VECTOR (DATA_N-1 downto 0);

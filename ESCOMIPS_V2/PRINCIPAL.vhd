@@ -8,8 +8,8 @@ entity PRINCIPAL is
 	  OSC_CLK : 		 in  STD_LOGIC; 
 	  CLR : 		 in  STD_LOGIC;
 	  DATA_IN  :  out STD_LOGIC_VECTOR(15 downto 0);
-	  WRITE_DATA : out STD_LOGIC;
-	  DATA_ADDRESS : OUT std_logic_vector(15 downto 0)
+	  WRITE_DATA : out STD_LOGIC
+	  --DATA_ADDRESS : OUT std_logic_vector(15 downto 0)
 	);	
 end PRINCIPAL;
 
@@ -159,7 +159,7 @@ begin
 	
 	DATA_IN<=BUSRD2;
 	WRITE_DATA<=Bus_25(1);
-	DATA_ADDRESS<=Bus_25(15 DOWNTO 0);
+	--DATA_ADDRESS<=Bus_25(15 DOWNTO 0);
 	
 end Behavioral;
 
