@@ -41,23 +41,23 @@ ARCHITECTURE behavior OF TB_PRINCIPAL IS
  
     COMPONENT PRINCIPAL
     PORT(
-         CLK : IN  std_logic;
-         CLR : IN  std_logic;
+         OSC_CLK : IN  std_logic;
+         REAL_CLR : IN  std_logic;
          DATA_IN : OUT  std_logic_vector(15 downto 0);
-         WRITE_DATA : OUT  std_logic;
-			DATA_ADDRESS : OUT std_logic_vector(15 downto 0)	
+         WRITE_DATA : OUT  std_logic
+			--DATA_ADDRESS : OUT std_logic_vector(15 downto 0)	
         );
     END COMPONENT;
     
 
    --Inputs
-   signal CLK : std_logic := '0';
-   signal CLR : std_logic := '0';
+   signal OSC_CLK  : std_logic := '0';
+   signal REAL_CLR : std_logic := '0';
 
  	--Outputs
    signal DATA_IN : std_logic_vector(15 downto 0);
    signal WRITE_DATA : std_logic;
-	SIGNAL DATA_ADDRESS : std_logic_vector(15 downto 0);
+	--SIGNAL DATA_ADDRESS : std_logic_vector(15 downto 0);
 
    -- Clock period definitions
    constant CLK_period : time := 10 ns;
@@ -66,32 +66,31 @@ BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
    uut: PRINCIPAL PORT MAP (
-          CLK => CLK,
-          CLR => CLR,
+          OSC_CLK => OSC_CLK,
+          REAL_CLR => REAL_CLR,
           DATA_IN => DATA_IN,
-          WRITE_DATA => WRITE_DATA,
-			 DATA_ADDRESS => DATA_ADDRESS
+          WRITE_DATA => WRITE_DATA
+			 --DATA_ADDRESS => DATA_ADDRESS
         );
 
    -- Clock process definitions
    CLK_process :process
    begin
-		CLK <= '0';
+		OSC_CLK <= '0';
 		wait for CLK_period/2;
-		CLK <= '1';
+		OSC_CLK <= '1';
 		wait for CLK_period/2;
    end process;
  
-
    -- Stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
       wait for 100 ns;	
-		CLR <= '1';
+		REAL_CLR <= '1';
       wait for CLK_period*10;
 		
-		CLR <= '0';
+		REAL_CLR <= '0';
       -- insert stimulus here 
 		
 		wait for 10000 ms;

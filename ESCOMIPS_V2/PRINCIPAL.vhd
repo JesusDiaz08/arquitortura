@@ -51,7 +51,7 @@ architecture Behavioral of PRINCIPAL is
 	SIGNAL Bus_20: STD_LOGIC_VECTOR (19 DOWNTO 0);
 	
 begin
-	-- LATCH
+-----------------------------------------------------LATCH
 	LATCH : PROCESS(REAL_CLR, OSC_CLK)
 		BEGIN
 			NOT_OSC_CLK <= NOT(OSC_CLK);
@@ -59,7 +59,7 @@ begin
 				CLR <= REAL_CLR;
 			END IF;
 	END PROCESS LATCH;
-	-- DIVISOR DE FRECUENCIA
+------------------------------------------------------DIVISOR DE FRECUENCIA
 	DIVISOR : PROCESS(CLR, OSC_CLK)
 	BEGIN
 		IF (CLR = '1') THEN
@@ -68,11 +68,10 @@ begin
 		ELSIF(RISING_EDGE(OSC_CLK)) THEN
 			FRECUENCIA_CONT <= FRECUENCIA_CONT + 1;
 			IF (FRECUENCIA_CONT = 0) THEN
-				CLK <= NOT CLK;
+				CLK <= NOT CLK; --sure??
 			END IF;
 		END IF;
 	END PROCESS DIVISOR;
-
 ----------------------------------------------------Memoria del progrmama
 	MEMORIA_PROGRAMA : programa PORT MAP( 
 			A => BusAzulrey,
