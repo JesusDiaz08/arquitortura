@@ -27,10 +27,11 @@ COMPONENT ArchivoDeRegistros is
 	  NBITS_DATA : INTEGER := 16
  ); 
  Port (
-	  -------------------------------------------------------------Barrrel Shifter
+	  -------------------------barrel-----------------------------
+--	  DATA_OUT  : inout  STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); 
 	  SHAMT     : in  STD_LOGIC_VECTOR (NBITS_ADDR-1 downto 0);
 	  DIR          : in STD_LOGIC;
-	  --------------------------------------------------------------Registros 
+	  -------------------------registros--------------------------
 	  CLK       : in  STD_LOGIC;
 	  WR           : in  STD_LOGIC; 
 	  ADDR_WR  : in  STD_LOGIC_VECTOR (NBITS_ADDR-1 downto 0); -- WRITE_REGISTER
@@ -39,7 +40,7 @@ COMPONENT ArchivoDeRegistros is
 	  WD            : in  STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); -- WRITE_DATA
 	  DINOUT1  : inout STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); -- READ_DATA1
 	  DOUT2         : out STD_LOGIC_VECTOR (NBITS_DATA-1 downto 0); -- READ_DATA2
-	  SHE           : in  STD_LOGIC 
+	  SHE           : in  STD_LOGIC --shift enable
 	 );
 end COMPONENT;
 ------------------------------------------------------Extensor de direccion
@@ -75,6 +76,7 @@ COMPONENT Pila is
     Port ( 
 	 	D : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 	 	Q : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
+	 	--SEL : OUT  STD_LOGIC_VECTOR(2 DOWNTO 0);
 	 	WPC,CLR,CLK,UP,DW : IN STD_LOGIC
 	 );
 end COMPONENT;

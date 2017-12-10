@@ -12,11 +12,16 @@ entity MEMORIAFUNCION is
 end MEMORIAFUNCION;
 
 architecture Behavioral of MEMORIAFUNCION is
+
 	SIGNAL MFUNC: MEMORIA := FILLMEMO("DATOSMEMFUN.txt");
+
 begin
 
 	MEMP: PROCESS (A, MFUNC)
 	BEGIN
+	
 		D <= MFUNC(CONV_INTEGER(A));	
+	
 	END PROCESS MEMP;
+
 end Behavioral;

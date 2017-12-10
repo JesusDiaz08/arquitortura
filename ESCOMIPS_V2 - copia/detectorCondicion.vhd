@@ -12,10 +12,8 @@ entity CONDICION is
 end CONDICION;
 
 architecture PROGRAMA of CONDICION is
---RBANDERAS(0) = C		
---RBANDERAS(1) = Z
---RBANDERAS(2) = N		
---RBANDERAS(3) = OV
+--RBANDERAS(0) = C		RBANDERAS(1) = Z
+--RBANDERAS(2) = N		RBANDERAS(3) = OV
 begin
 	EQ 	<= RBANDERAS(1) or (RBANDERAS(0) XOR RBANDERAS(0));																	
 	NEQ 	<= NOT RBANDERAS(1);															

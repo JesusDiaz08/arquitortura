@@ -17,9 +17,9 @@ begin
 		IF(CLR = '1') THEN
 			RBANDERAS <= (OTHERS => '0'); 
 		ELSIF (FALLING_EDGE(CLK)) THEN 
-			--IF(LF = '1') THEN
+			IF(LF = '1') THEN
 				RBANDERAS <= BANDERAS;
-			--END IF;
+			END IF;
 		END IF;
 	END PROCESS PREG;
 

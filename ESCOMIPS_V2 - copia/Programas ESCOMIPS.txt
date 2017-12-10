@@ -1,0 +1,17 @@
+----Copiar en memoria del programa (Practica2.vhd)---
+
+-----------------PROGRAMA CONTADOR-------------------
+OPCODE_LI&R0&X"0001",
+OPCODE_LI&R1&X"0007",
+OPCODE_TIPOR&R1&R1&R0&SU&FUNCODE_ADD,
+OPCODE_SWI&R1&X"0005",
+OPCODE_B&SU&X"0002",
+-----------------------------------------------------
+
+-----------------PROGRAMA BURBUJA--------------------
+OPCODE_LI&R0&X"0001",
+OPCODE_LI&R1&X"0007",
+OPCODE_TIPOR&R1&R1&R0&SU&FUNCODE_ADD,
+OPCODE_SWI&R1&X"0005",
+OPCODE_B&SU&X"0002",
+-----------------------------------------------------
