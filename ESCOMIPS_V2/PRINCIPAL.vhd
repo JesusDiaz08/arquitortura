@@ -8,8 +8,8 @@ entity PRINCIPAL is
 	  OSC_CLK : 		 in  STD_LOGIC; -- clock real
 	  REAL_CLR : 		 in  STD_LOGIC; -- clear real
 	  DATA_IN  :  out STD_LOGIC_VECTOR(15 downto 0);
-	  WRITE_DATA : out STD_LOGIC;
-	  DATA_ADDRESS : OUT std_logic_vector(15 downto 0)
+	  WRITE_DATA : out STD_LOGIC
+	  --DATA_ADDRESS : OUT std_logic_vector(15 downto 0)
 	);	
 end PRINCIPAL;
 
@@ -64,7 +64,7 @@ begin
 	BEGIN
 		IF (CLR = '1') THEN
 			FRECUENCIA_CONT <= 0;
-         CLK <=  '1'; -- NO ESTOY SEGURO DE ESTA PARTE
+         CLK <=  '1';
 		ELSIF(RISING_EDGE(OSC_CLK)) THEN
 			FRECUENCIA_CONT <= FRECUENCIA_CONT + 1;
 			IF (FRECUENCIA_CONT = 0) THEN
@@ -167,7 +167,7 @@ begin
 	--Write data de la memoria de datos
 	WRITE_DATA<=Bus_20(2);
 	--Direcciones de la memoria de datos
-	DATA_ADDRESS<=BusSDMD;
+	--DATA_ADDRESS<=BusSDMD;
 	
 end Behavioral;
 
