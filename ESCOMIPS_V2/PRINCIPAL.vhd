@@ -8,8 +8,8 @@ entity PRINCIPAL is
 	  OSC_CLK : 		 in  STD_LOGIC; -- clock real
 	  REAL_CLR : 		 in  STD_LOGIC; -- clear real
 	  DATA_IN  :  out STD_LOGIC_VECTOR(15 downto 0);
-	  WRITE_DATA : out STD_LOGIC;
-	  DATA_ADDRESS : OUT std_logic_vector(15 downto 0)
+	  WRITE_DATA : out STD_LOGIC
+	  --DATA_ADDRESS : OUT std_logic_vector(15 downto 0)
 	);	
 end PRINCIPAL;
 
@@ -51,7 +51,7 @@ architecture Behavioral of PRINCIPAL is
 	SIGNAL Bus_20: STD_LOGIC_VECTOR (19 DOWNTO 0);
 	
 begin
-	-- LATCH
+-----------------------------------------------------LATCH
 	LATCH : PROCESS(REAL_CLR, OSC_CLK)
 		BEGIN
 			NOT_OSC_CLK <= NOT(OSC_CLK);
@@ -59,7 +59,7 @@ begin
 				CLR <= REAL_CLR;
 			END IF;
 	END PROCESS LATCH;
-	-- DIVISOR DE FRECUENCIA
+------------------------------------------------------DIVISOR DE FRECUENCIA
 	DIVISOR : PROCESS(CLR, OSC_CLK)
 	BEGIN
 		IF (CLR = '1') THEN
@@ -68,11 +68,10 @@ begin
 		ELSIF(RISING_EDGE(OSC_CLK)) THEN
 			FRECUENCIA_CONT <= FRECUENCIA_CONT + 1;
 			IF (FRECUENCIA_CONT = 0) THEN
-				CLK <= NOT CLK;
+				CLK <= NOT CLK; --sure??
 			END IF;
 		END IF;
 	END PROCESS DIVISOR;
-
 ----------------------------------------------------Memoria del progrmama
 	MEMORIA_PROGRAMA : programa PORT MAP( 
 			A => BusAzulrey,
@@ -167,7 +166,7 @@ begin
 	--Write data de la memoria de datos
 	WRITE_DATA<=Bus_20(2);
 	--Direcciones de la memoria de datos
-	DATA_ADDRESS<=BusSDMD;
+	--DATA_ADDRESS<=BusSDMD;
 	
 end Behavioral;
 
