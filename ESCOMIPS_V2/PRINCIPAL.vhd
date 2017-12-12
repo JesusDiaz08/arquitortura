@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity PRINCIPAL is
  Port ( 
 	  OSC_CLK : 		 in  STD_LOGIC; -- clock real
-	  REAL_CLR : 		 in  STD_LOGIC; -- clear real
+	  CLR : 		 in  STD_LOGIC;
 	  DATA_IN  :  out STD_LOGIC_VECTOR(15 downto 0);
 	  WRITE_DATA : out STD_LOGIC
 	  --DATA_ADDRESS : OUT std_logic_vector(15 downto 0)
@@ -14,13 +14,10 @@ entity PRINCIPAL is
 end PRINCIPAL;
 
 architecture Behavioral of PRINCIPAL is
-   -- bloque auxiliar
-	SIGNAL CLR : STD_LOGIC;
 	
    -- divisor de frecuencia
 	SIGNAL CLK : STD_LOGIC;
    SIGNAL FRECUENCIA_CONT : INTEGER RANGE 0 TO 50000000-1;
-	SIGNAL NOT_OSC_CLK : STD_LOGIC;
 	
 	--memoria del prog
 	SIGNAL BusAzulrey : STD_LOGIC_VECTOR (15 downto 0);
@@ -51,14 +48,6 @@ architecture Behavioral of PRINCIPAL is
 	SIGNAL Bus_20: STD_LOGIC_VECTOR (19 DOWNTO 0);
 	
 begin
------------------------------------------------------LATCH
-	LATCH : PROCESS(REAL_CLR, OSC_CLK)
-		BEGIN
-			NOT_OSC_CLK <= NOT(OSC_CLK);
-			IF (NOT_OSC_CLK = '1') THEN
-				CLR <= REAL_CLR;
-			END IF;
-	END PROCESS LATCH;
 ------------------------------------------------------DIVISOR DE FRECUENCIA
 	DIVISOR : PROCESS(CLR, OSC_CLK)
 	BEGIN
@@ -68,7 +57,7 @@ begin
 		ELSIF(RISING_EDGE(OSC_CLK)) THEN
 			FRECUENCIA_CONT <= FRECUENCIA_CONT + 1;
 			IF (FRECUENCIA_CONT = 0) THEN
-				CLK <= NOT CLK; --sure??
+				CLK <= NOT CLK;
 			END IF;
 		END IF;
 	END PROCESS DIVISOR;

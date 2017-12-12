@@ -73,7 +73,7 @@ constant mem_prog: memoria :=(
 OPCODE_LI&R0&X"0000",					--LI R0, #0			0
 OPCODE_LI&R1&X"0001",					--LI R1, #1			1
 OPCODE_LI&R2&X"0000",					--LI R2, #0			2
-OPCODE_LI&R3&X"1010",					--LI R3, #10		3
+OPCODE_LI&R3&X"000A",					--LI R3, #10		3
 
 OPCODE_TIPOR&R4&R0&R1&SU&FUNCODE_ADD,	--ADD R4, R0, R1	4
 
